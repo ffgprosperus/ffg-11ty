@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+</head>
+<link rel="stylesheet" href="/css/styling.css">
+<body>
+{% include "partials/htmlhead.njk" %}
+
+<main>
+{% block content %}
+
+  <h1>{{ title }}</h1>
+
+  {{ content | safe }}
+
+{% endblock %}
+</main>
+</body>
+{% include "partials/htmlfoot.njk" %}
+</html>
+
