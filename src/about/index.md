@@ -7,4 +7,4 @@ eleventyNavigation:
   order: 200
 ---
 
-Some information about us.
+About!
