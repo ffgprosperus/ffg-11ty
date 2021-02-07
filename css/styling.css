@@ -1,22 +1,22 @@
 body {
-    background-color: white;
-    font-family: Lato !important;
-    font-weight: Regular;
+    bagkground-color: white;
+    font-family: lato !important;
+    font-weight: regular;
     font-size: 17px;
 
     text-align: center;
 }
 main {
-    font-family: Lato;
+    font-family: lato;
     margin: 20px;
     padding: 20px;
 
 }
 
 header {
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     width: 100%;
-    color: #477A7C;
+    color: #477a7c;
     align-self: flex-end;
 }
 header li {
@@ -24,14 +24,15 @@ header li {
     justify-content: space-around;
     align-items: flex-end;
 }
+
 .col {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    background: #477A7C;
+    background: #477a7c;
     width: 250px;
     height: 300px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 4%;
     padding-left: 2%;
     padding-right: 2%;
@@ -44,6 +45,7 @@ header li {
 .row {
     display: flex;
 }
+
 /* .flex-container {
     display: flex;
     display: -ms-flex;
@@ -53,4 +55,4 @@ header li {
 .flex-container > .flex-column {
     flex: 1;
     padding: 0 30px;
-  } */
+} */

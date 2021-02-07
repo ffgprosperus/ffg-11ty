@@ -1,9 +1,9 @@
 ---
 description: ProsperUS Detroit's homepage
 layout: page.njk
-eleventyNavigation:
-  key: home
-  order: 100
+#eleventyNavigation:
+#  key: home
+#  order: 100
 ---
 
 ##### Growing Detroit's neighborhood businesses, one resident at a time.
