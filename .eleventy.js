@@ -35,6 +35,7 @@ module.exports = function(eleventyConfig) {
       })
     eleventyConfig.setLibrary('md', md);
     eleventyConfig.addPassthroughCopy('css');
+    eleventyConfig.addPassthroughCopy('src/images');
     eleventyConfig.addPlugin( require('@11ty/eleventy-navigation') );
     eleventyConfig.addPlugin(eleventyGoogleFonts);
     eleventyConfig.addShortcode('navlist', require('./lib/shortcodes/navlist.js'));

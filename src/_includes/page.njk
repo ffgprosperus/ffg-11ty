@@ -9,15 +9,18 @@
 </head>
 <link rel="stylesheet" href="/css/styling.css">
 <body>
-{% include "partials/htmlhead.njk" %}
+{% if (title == "Home") %}
+  {% include "partials/herohead.njk" %}
+{% else %}
+  {% include "partials/htmlhead.njk" %}
+{% endif %}
 
 <main>
-{% block content %}
-
-  <h1>{{ title }}</h1>
-
+{% block content %} 
   {{ content | safe }}
-
+  {% if (title == "Home") %}
+    <iframe src="https://www.google.com/maps/d/embed?mid=1PMYssio8sPeSjTEMVtRaP-Ij_x8" width="800" height="600"></iframe>
+  {%endif%}
 {% endblock %}
 </main>
 </body>

@@ -1,0 +1,21 @@
+
+    
+  <section class="hero">
+  <header id="#hero-header" class="hero-header-container container">
+    <p class="logo"><a href="/"><img src="/images/logo.png" alt="11ty starter"></a></p>
+    <nav class="nav-container">
+    {% navlist collections.all | eleventyNavigation, page, 'nav-item', 2 %}
+    <div class="search nav-item"><p>search</p></div>
+    </nav>
+    
+  </header>
+    <div class='hero-text'>
+    <h1>Proper US Detroit</h1>
+    <p>{{heroText}}</p>
+    </div>
+  <footer class="hero-footer">
+
+    <a class="button button-primary" href="#">Apply</a>
+    <a class="button" href="#">Donate</a>
+  </footer>
+</section>

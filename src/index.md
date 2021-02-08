@@ -1,12 +1,10 @@
 ---
+title: Home
 description: ProsperUS Detroit's homepage
 layout: page.njk
-eleventyNavigation:
-  key: home
-  order: 100
+hero: "images/hero.png"
+heroText: "Growing Detroit's neighborhood businesses, one resident at a time."
 ---
-
-##### Growing Detroit's neighborhood businesses, one resident at a time.
 
 :::: container
 ::: col
@@ -14,7 +12,7 @@ eleventyNavigation:
 
 
 
-A comprehensive, 20-week entrepreneur training program that helps participants realize their potential and develop a business plan. {.col}
+A comprehensive, 20-week entrepreneur training program that helps participants realize their potential and develop a business plan.
 :::
 
 

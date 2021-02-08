@@ -1,11 +1,14 @@
-
-  
- <section class="normalHeader">
-  <header id="heroHeader" class="container">
+<section class="hero">
+  <header id="header" class="container">
     <p class="logo"><a href="/"><img src="/images/logo.png" alt="11ty starter"></a></p>
     <nav class="nav-container">
     {% navlist collections.all | eleventyNavigation, page, 'nav-item', 2 %}
     <div class="search nav-item"><h1>search</></div>
-    </nav>  
+    </nav>
+    
   </header>  
+  <footer class="hero-footer">
+    <a class="button button-primary" href="#">button one</a>
+    <a class="button" href="#">button two</a>
+  </footer>
 </section>

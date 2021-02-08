@@ -3,8 +3,8 @@ title: Resources
 description: Information.
 layout: page.njk
 eleventyNavigation:
-  key: resources
-  order: 300
+  key: Resources
+  order: 400
 ---
 
 Some resources.

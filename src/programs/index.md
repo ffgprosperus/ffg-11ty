@@ -3,7 +3,7 @@ title: Programs
 description: What we offer.
 layout: page.njk
 eleventyNavigation:
-  key: programs
+  key: Programs
   order: 300
 ---
 
