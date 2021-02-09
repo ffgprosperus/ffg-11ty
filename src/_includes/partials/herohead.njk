@@ -1,14 +1,24 @@
 
     
-  <section class="hero">
-  <header id="#hero-header" class="hero-header-container container">
-    <p class="logo"><a href="/"><img src="/images/logo.png" alt="11ty starter"></a></p>
-    <nav class="nav-container">
-    {% navlist collections.all | eleventyNavigation, page, 'nav-item', 2 %}
-    <div class="search nav-item"><p>search</p></div>
-    </nav>
-    
-  </header>
+  <section class="container-fluid hero">
+    <div class="row header-row">
+        <div class="col-sm-12">
+            <header id="#hero-header" class="hero-header-container container">
+                <div class="col-sm-2 float-left h-100 logo">
+                    <a href="/">
+                        <img class="logo" src="../images/logo.png" />
+                    </a>
+                </div>
+                <nav class="nav-container">
+                {% navlist collections.all | eleventyNavigation, page, 'nav-item', 2 %}
+                <div class="search-box">
+                <input type ="text" class ="txt" placeholder ="Search Here...">
+                <a class ="btn"><i class ="fa fa-search"></i></a>
+                </div>
+                </nav>
+            </header>
+        </div>
+    </div>
     <div class='hero-text'>
     <h1>Proper US Detroit</h1>
     <p>{{heroText}}</p>

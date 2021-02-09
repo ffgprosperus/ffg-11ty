@@ -4,5 +4,5 @@ description: How to reach us.
 layout: page.njk
 eleventyNavigation:
   key: Contact
-  order: 600
+  order: 700
 ---
