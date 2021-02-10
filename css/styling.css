@@ -101,14 +101,14 @@ header {
     margin-left: 23%;
    
 }
-.nav-item {
+.nav-item-1 {
     display: inline-flex;
     margin-right: 1.5em;
     list-style: none;
     margin-bottom: 0;
 
 }
-.nav-item a{
+/* .nav-item a{
     display: flex;
     text-decoration: none;
     color: #477A7C;
@@ -118,7 +118,7 @@ header {
 
 .nav-item a:hover{
     text-decoration: underline;
-}
+} */
 .hero-header-container{
    display: flex;
    color: #477A7C;

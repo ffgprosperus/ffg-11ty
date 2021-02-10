@@ -1,33 +1,8 @@
-<header class="header">
-    <div class="container-fluid">
-        <div class="row .header-row">
-            <div class="col-sm-2 float-left h-100">
-                <a href="/">
-                    <img class="logo" src="../images/logo.png" />
-                </a>
-            </div>
-            <div class="col-sm-10 h-100">
-                <div class="row h-50">
-                    <div class="col-sm-10 float-left"></div>
-                    <div class="col-sm-2 float-right">
-                       <btn class="header-btn">Donate</btn>
-                       <btn class="header-btn">Apply</btn>
-                    </div>
-                </div>
-                <div class="row h-50">
-                    <div class="col-sm-8 float-left">
-                        <nav>
-                            {% navlist collections.all | eleventyNavigation, page, 2, 'nav-item' %}
-                        </nav>
-                    </div>
-                    <div class="col-sm-4 float-right">
-                        <div class="search-box float-right">
-                            <input type ="text" class ="txt" placeholder ="Search Here...">
-                            <a class ="btn"><i class ="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>    
+{% include "partials/exheader.njk" %}
+
+<div class="col-sm-4 float-right">
+    <div class="search-box float-right">
+        <input type ="text" class ="txt" placeholder ="Search Here...">
+        <a class ="btn"><i class ="fa fa-search"></i></a>
     </div>
-</header>
+</div>
