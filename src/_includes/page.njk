@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,25 +8,30 @@
   {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <link rel="stylesheet" href="/css/styling.css">
 <link rel="stylesheet" href="/css/header-styling.css">
-<body>
+<link rel="stylesheet" href="/css/footer-styling.css">
+<body style="height: 100%; display: flex; flex-direction: column;">
+  <div style="flex: 1 0 auto;">
 {% if (title == "Home") %}
   {% include "partials/herohead.njk" %}
 {% else %}
-  {% include "partials/htmlhead.njk" %}
+  {% include "partials/exheader.njk" %}
 {% endif %}
+  </div>
 
 <main style="margin: 0px">
+<div style="flex: 1 0 auto;">
 {% block content %}
+</div>
 
   <h1>{{ title }}</h1>
 
   {{ content | safe }}
-  
   {% if (title == "Home") %}
     <iframe src="https://www.google.com/maps/d/embed?mid=1PMYssio8sPeSjTEMVtRaP-Ij_x8" width="800" height="600"></iframe>
   {% elif (title == "Apply") %}
@@ -39,6 +44,7 @@
 {% endblock %}
 </main>
 </body>
+
 <div style="flex-shrink: 0;">
 {% include "partials/htmlfoot.njk" %}
 </div>
