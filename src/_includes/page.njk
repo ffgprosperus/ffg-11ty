@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,15 +14,19 @@
 <link rel="stylesheet" href="/css/styling.css">
 <link rel="stylesheet" href="/css/header-styling.css">
 <link rel="stylesheet" href="/css/footer-styling.css">
-<body>
+<body style="height: 100%; display: flex; flex-direction: column;">
+  <div style="flex: 1 0 auto;">
 {% if (title == "Home") %}
   {% include "partials/herohead.njk" %}
 {% else %}
   {% include "partials/headerTemp.njk" %}
 {% endif %}
+  </div>
 
 <main style="margin: 0px">
+<div style="flex: 1 0 auto;">
 {% block content %}
+</div>
 
   <h1>{{ title }}</h1>
 
@@ -39,5 +43,8 @@
 {% endblock %}
 </main>
 </body>
+
+<div style="flex-shrink: 0;">
 {% include "partials/htmlfoot.njk" %}
+</div>
 </html>
