@@ -44,14 +44,6 @@
     /* our font-size will be 3% of the height of the viewport */
 }
 
-.footer-left-align {
-  /*float: left;*/
-}
-
-.footer-right-align { 
- /* float: right;*/
-}
-
 .footer-newsletter-block {
   background-color: gray;
 }
