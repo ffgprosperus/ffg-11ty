@@ -1,7 +1,7 @@
 ---
 title: Programs
 description: What we offer.
-layout: page.njk
+layout: placeholder.njk
 eleventyNavigation:
   key: Programs
   order: 200

@@ -1,7 +1,7 @@
 ---
 title: Events
 description: Upcoming Events.
-layout: page.njk
+layout: placeholder.njk
 eleventyNavigation:
   key: Events
   order: 100

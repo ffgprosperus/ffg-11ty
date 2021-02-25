@@ -1,7 +1,7 @@
 ---
 title: Blog
 description: Blog posts from our community members.
-layout: page.njk
+layout: placeholder.njk
 eleventyNavigation:
   key: Blog
   order: 600

@@ -5,9 +5,12 @@ const markdownItAttrs = require('markdown-it-attrs');
 const markdownItCont = require('markdown-it-container');
 const mapping = {};
 const md = markdownIt({ linkify: true, html: true, breaks: true });
-
+const util = require('util')
 
 module.exports = function(eleventyConfig) {
+    eleventyConfig.addFilter('dump', obj => {
+      return util.inspect(obj)
+    });
     eleventyConfig.setTemplateFormats([
         "md",
         "css",

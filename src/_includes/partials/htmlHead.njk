@@ -18,34 +18,10 @@
 <body style="height: 100%; display: flex; flex-direction: column;">
   <div style="flex: 1 0 auto;">
 {% if (title == "Home") %}
-  {% include "partials/herohead.njk" %}
+  {% include "partials/heroHead.njk" %}
 {% else %}
-  {% include "partials/exheader.njk" %}
+  {% include "partials/standardHeader.njk" %}
 {% endif %}
   </div>
 
 <main style="margin: 0px">
-<div style="flex: 1 0 auto;">
-{% block content %}
-</div>
-
-  <h1>{{ title }}</h1>
-
-  {{ content | safe }}
-  {% if (title == "Home") %}
-    <iframe src="https://www.google.com/maps/d/embed?mid=1PMYssio8sPeSjTEMVtRaP-Ij_x8" width="800" height="600"></iframe>
-  {% elif (title == "Apply") %}
-    <iframe src="https://tfaforms.com/4883320" height="800" width="800"
-    frameborder="0" style="border: none;">
-      <p>Your browser does not support iframes.</p>
-    </iframe>
-    <script src="//tfaforms.com/js/iframe_resize_helper.js"></script>
-  {%endif%}
-{% endblock %}
-</main>
-</body>
-
-<div style="flex-shrink: 0;">
-{% include "partials/htmlfoot.njk" %}
-</div>
-</html>

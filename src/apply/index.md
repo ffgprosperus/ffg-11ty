@@ -1,5 +1,5 @@
 ---
 title: Apply
 description: How to apply.
-layout: page.njk
+layout: apply.njk
 ---

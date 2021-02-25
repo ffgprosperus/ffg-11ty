@@ -1,7 +1,7 @@
 ---
 title: Donate
 description: How to donate.
-layout: page.njk
+layout: placeholder.njk
 # eleventyNavigation:
 #   key: Donate
 #   order: 5

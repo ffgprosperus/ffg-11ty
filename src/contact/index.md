@@ -1,7 +1,7 @@
 ---
 title: Contact
 description: How to reach us.
-layout: page.njk
+layout: placeholder.njk
 eleventyNavigation:
   key: Contact
   order: 700

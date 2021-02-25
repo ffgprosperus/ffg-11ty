@@ -1,7 +1,7 @@
 ---
 title: Resources
 description: Information.
-layout: page.njk
+layout: placeholder.njk
 eleventyNavigation:
   key: Resources
   order: 400

@@ -1,0 +1,8 @@
+<div class="container">
+{%- for card in collections.infoCard -%}
+  <div class="col">
+    <h4>{{card.data.title}}</h4>
+    <p>{{card.templateContent | safe}}<p>
+  </div>
+{%- endfor -%}
+</div>

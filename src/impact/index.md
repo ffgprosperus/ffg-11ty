@@ -1,7 +1,7 @@
 ---
 title: Impact
 description: Who've we've helped.
-layout: page.njk
+layout: placeholder.njk
 eleventyNavigation:
   key: Impact
   order: 500
