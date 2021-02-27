@@ -1,8 +1,10 @@
 ---
 title: Blog
-description: Blog posts from our community members.
-layout: placeholder.njk
-eleventyNavigation:
-  key: Blog
-  order: 600
+description: These are blog posts
+layout: blog.njk
+# eleventyNavigation:
+#   key: Blog
+#   order: 20
 ---
+
+blog blog blog

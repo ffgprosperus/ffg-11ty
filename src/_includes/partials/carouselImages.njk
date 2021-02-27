@@ -1,0 +1,15 @@
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"">
+  <div class="carousel-inner">
+    {% set active = true %}
+    {%- for image in collections.carousel -%}
+      {% if active == true %}
+      <div class="carousel-item active">
+      {% else %}
+      <div class="carousel-item">
+      {% endif %}
+        <img class="d-block w-100" src="{{image.data.carouselImage}}" alt="{{image.data.altText}}"/>
+      </div>
+      {% set active = false %}
+    {%- endfor -%}
+  </div>
+</div>
