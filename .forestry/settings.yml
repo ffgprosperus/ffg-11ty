@@ -1,41 +1,41 @@
 ---
 new_page_extension: md
 auto_deploy: false
-admin_path:
-webhook_url:
+admin_path: 
+webhook_url: 
 sections:
 - type: heading
   label: Forestry
 - type: document
-  label: starter
   path: src/index.md
+  label: starter
 - type: document
-  label: About
   path: src/about/index.md
+  label: About
 - type: document
-  label: Apply
   path: src/apply/index.md
+  label: Apply
 - type: document
-  label: Blog
   path: src/blog/index.md
+  label: Blog
 - type: document
-  label: Contact
   path: src/contact/index.md
+  label: Contact
 - type: document
-  label: Donate
   path: src/donate/index.md
+  label: Donate
 - type: document
-  label: Events
   path: src/events/index.md
+  label: Events
 - type: document
-  label: Impact
   path: src/impact/index.md
+  label: Impact
 - type: document
-  label: Programs
   path: src/programs/index.md
+  label: Programs
 - type: document
-  label: Resources
   path: src/resources/index.md
+  label: Resources
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
