@@ -4,6 +4,13 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: directory
+  path: src/carousel_images_collection
+  label: Carousel Images
+  create: documents
+  match: "**/*"
+  templates:
+  - carouselimages
 - type: heading
   label: Forestry
 - type: document
