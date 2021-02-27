@@ -1,4 +1,21 @@
 ---
 label: CarouselImages
 hide_body: true
-fields: []
+fields:
+- name: carouselImage
+  type: text
+  config:
+    required: false
+  label: Image Path
+- name: altText
+  type: text
+  config:
+    required: false
+  label: Alternative Text
+- name: tags
+  type: text
+  config:
+    required: false
+  label: tags
+  hidden: true
+  default: carousel
