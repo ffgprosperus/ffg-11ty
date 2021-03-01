@@ -1,4 +1,16 @@
 ---
 label: InfoCards
 hide_body: false
-fields: []
+fields:
+- name: tags
+  type: text
+  config:
+    required: false
+  label: tags
+  hidden: true
+  default: infoCard
+- name: title
+  type: text
+  config:
+    required: false
+  label: Card Title Text
