@@ -20,4 +20,5 @@ fields:
   hidden: true
   default: carousel
 pages:
+- src/carousel_images_collection/KoalaCarouselImage.md
 - src/carousel_images_collection/newConventionImage.md
