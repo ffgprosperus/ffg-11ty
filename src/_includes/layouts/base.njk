@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <link rel="stylesheet" type="text/css" href="/assets/main.css" />
+     {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
+  </head>
+  <body>
+    {% if (title == "Home") %}
+      {% include "components/heroHead.njk" %}
+    {% else %}
+      {% include "components/standardHeader.njk" %}
+    {% endif %}
+    <main>
+      {{ content | safe }}
+    </main>
+    <script src="/assets/main.js"></script>
+  </body>
+</html>
+{%include "components/standardFooter.njk"%}

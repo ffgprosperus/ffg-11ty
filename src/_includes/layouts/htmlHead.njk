@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
+</head>
+<link rel="stylesheet" href="/assets/main.css">
+<body>
+<script src="/assets/main.js"></script>
+  <div>
+    {% if (title == "Home") %}
+      {% include "components/heroHead.njk" %}
+    {% else %}
+      {% include "components/standardHeader.njk" %}
+    {% endif %}
+  </div>
+
+<main>

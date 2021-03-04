@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.search-bar{
+ transition: width 300ms cubic-bezier(0.18, .89, .32, 1.15 );
+}
+.search-bar:focus-within .search-bar__submit {
+ color: white;
+ background-color: #477A7C;
+ margin-right: .20em;
+
+}
+
+.search-bar:focus-within .search-bar__input {
+
+}
