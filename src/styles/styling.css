@@ -1,14 +1,13 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
 body {
     background-color: white;
     font-family: lato !important;
     font-weight: regular;
-    font-size: 17px;
-    margin: 0;
-    text-align: center;
 }
 main {
-    font-family: Lato;
-    flex: auto;
+
 }
 .logo{
 

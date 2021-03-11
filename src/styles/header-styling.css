@@ -1,87 +1,46 @@
-/* header{ 
-    overflow: hidden;
-    float: left;
-    min-height: 100%;
-    color: #477a7c;
-}
-
-.header-btn {
-    float:right; 
-    background-color: #477A7C; 
-    color: #FFF; 
-    margin: 0px 5px; 
-    padding: 10px; 
-    width: 45%;
-} */
-
-/* header ul{
-    margin: 0;
-    padding: 2vw;
-
-    /*this option by default dispose the elements in a row (flex-direction: row)*/
-    /* display: flex;
-    float: middle; 
-} */
-
-/* header li{
-    list-style-type: none;
-    margin: 0 2vw;
-    /* our font-size will be 3% of the height of the viewport */
-    /* font-size: 3vh;
-    font-weight: bold; /
-} */
-
-.search-box {
-    background: none;
-    height:40px;
-    border-radius:40px;
+/* NavBar Styles */
+ .navbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
-    margin-top:2rem;
-    margin: 0;
+    width: 100%;
+    
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #ffffff; 
 }
 
-.search-box:hover > .txt {
-    width:200px;
-    padding:0 6px;
-    transition: all 1s;
+.navbar__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+        
 }
 
-.search-box:hover > .btn {
-    /*background: #07051a*/
+.navbar__list-item{
+    display: inline-block;
+    padding: 0 20px 0 20px;
 }
 
-.btn {
-    float:right;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transition:0.4s;
-    cursor:pointer;
-}
+.navbar__list-link {
+    display: inline-block;
+    text-transform: uppercase;
+    color: gray;
+    text-decoration: none;
 
-.btn > i{
-    font-size:30px;
-    color:#477A7C;
 }
+:hover.navbar__list-link {
+    font-weight: 900;
 
-.txt{
-    border:none;
-    border-radius: 15px;
-    background:#FFF;
-    outline:none;
-    float:left;
-    padding:0;
-    color:#333;
-    font-size:16px;
-    transition:0.4s;
-    line-height:40px;
-    width:0px;
-    font-weight:bold;
 }
-
+.navbar__list-link--active {
+    border-bottom: 2px solid #477A7C;
+    font-weight: 900;
+    
+}
+.grid--search-bar {
+    display: flex;
+    margin-left: auto;
+    padding-right: 15px;
+}

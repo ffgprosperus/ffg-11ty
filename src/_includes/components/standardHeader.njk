@@ -1,30 +1,27 @@
-<div class="fixed w-full flex flex-col">
-  <div class="bg-red-600 h-6"></div>
-  <nav class="flex flex-row bg-white items-center justify-between flex-wrap px-5 py-3 border-b">
-    <a href="/"><img width="160" src="../images/logo.png" /></a>
+<nav class="navbar">
+  <a class = "navbar__logo" href="/"><img width="160" src="../images/logo.png" /></a>
 
-    {% set navPages = collections.all | eleventyNavigation %}
-    <ul>
-      {% for entry in navPages %}
-        <li class="inline">
-          <a
-          href="{{ entry.url }}"
-          class="uppercase py-1 mt-6 px-2 font-lato mr-4 inline-block
-          {{'border-b-2 border-pud_green font-medium' if entry.url in page.url
-          else 'text-gray-700 hover:text-gray-900'}}">
-          {{ entry.title }}
-        </a>
-        </li>
-      {% endfor %}
-    </ul>
-    <div class="flex w-64 mt-6">
-      <div class="relative flex items-center space-between flex-row text-gray-600 border-2 border-pud_green rounded-full focus-within:text-gray-400 w-11 h-11 focus-within:w-full focus-within:h-18 transition-width transition duration-900 search-in-out overflow-hidden search-bar">
-        <input type="text" class="absolute top-0 bottom-0 left-0 flex-grow-1 2xl w-4/5 search-bar__input cursor-pointer focus:outline-none focus:cursor-text bg-opacity-25 h-auto opacity-0 focus:opacity-100 focus:pl-4" placeholder="Search..." area-label="">
-        <button class="search-bar__submit align-middle rounded-full h-9 w-9 p-1  cursor-pointer ml-auto transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </button>
-      </div>
+  {% set navPages = collections.all | eleventyNavigation %}
+  <ul class="navbar__item navbar__list">
+    {% for entry in navPages %}
+      <li class="navbar__list-item">
+        <a
+        href="{{ entry.url }}"
+        class="navbar__list-link uppercase py-1 mt-6 px-2 font-lato mr-4 inline-block
+        {{'navbar__list-link--active border-b-2 border-pud_green font-medium' if entry.url in page.url
+        else 'text-gray-700 hover:text-gray-900'}}">
+        {{ entry.title }}
+      </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="grid grid--search-bar flex w-64 mt-6">
+    <div class="search-bar  relative flex items-center space-between flex-row text-gray-600 border-2 border-pud_green rounded-full focus-within:text-gray-400 w-11 h-11 focus-within:w-full focus-within:h-18 transition-width transition duration-900 search-in-out overflow-hidden">
+      <input type="text" class="absolute top-0 bottom-0 left-0 flex-grow-1 2xl w-4/5 search-bar__input cursor-pointer focus:outline-none focus:cursor-text bg-opacity-25 h-auto opacity-0 focus:opacity-100 focus:pl-4" placeholder="Search..." area-label="">
+      <button class="search-bar__submit align-middle rounded-full h-9 w-9 p-1  cursor-pointer ml-auto transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </button>
     </div>
+  </div>
 
-  </nav>
-</div>
+</nav>

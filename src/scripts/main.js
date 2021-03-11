@@ -1,1 +1,1 @@
-import '../styles/main.css';
+alert('it works')
