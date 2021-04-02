@@ -25,28 +25,24 @@
 var map;
 var locations = [];
 
-function initializeMap() {
+function initializeMap(directoryCollection) {
+    $(directoryCollection).each(function() {
+      var location = {};
+      location.title = directoryCollection.businessName;
+      location.latitude = directoryCollection
+      location.longitude = parseFloat(this[5]);
+      location.email = this[1];
+      location.mobile = this[2];
+      location.address = this[3];
+      locations.push(location);
+    });
 
-  $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1eh-tegky8qShoJrDtx1DBT4ppHeqt-ngWXf7DzdUY44/values/Sheet1!A2:F6?key=AIzaSyCfpU4ZBRpxXM65E3TDMo2uGPz_yMfpCew", function(data) {
-
-    	$(data.values).each(function() {
-    		var location = {};
-				location.title = this[0];
-				location.latitude = parseFloat(this[4]);
-      	        location.longitude = parseFloat(this[5]);
-                location.email = this[1];
-       	        location.mobile = this[2];
-                location.address = this[3];
-	  		    locations.push(location);
-    	});
-
-      var mapOptions = {
-        zoom: 10,
-        center: new google.maps.LatLng(0, 0)
-      };
-      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      setLocations(map, locations);
-  });
+    var mapOptions = {
+      zoom: 10,
+      center: new google.maps.LatLng(0, 0)
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    setLocations(map, locations);
 }
 
 
