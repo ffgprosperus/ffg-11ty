@@ -1,16 +1,8 @@
-<!--iframe src="https://www.google.com/maps/d/embed?mid=1PMYssio8sPeSjTEMVtRaP-Ij_x8" width="800" height="600"></iframe-->
-// we have a collection of addresses
-// use the createLocations function to make a contentWindow (this is the square for the map?)
-// for each address we need to:
-        // look up the latitude and longitude
-                //this uses the google maps api
-        // use the createMarker to drop a pin for each address
-//getLatLongInfo takes a list of addresses (and other business info) and returns that same list + latitude and longitude for each business
-<div id="map">
-    {%- set contentWindow = createContentWindow() %}
-    {%- for businessInfo in (collections.maps | getLatLongInfo) -%}
-        createMarker(businessInfo, contentWindow)
-    {%- endfor -%}
+
+
+<div>
+  <!-- place stuff on map-->
+  {%- for address in collections.maps -%}
+    <p>{{address.data.address | getLatLong }}</p>
+  {%- endfor -%}
 </div>
-
-

@@ -6,8 +6,13 @@ const markdownItCont = require('markdown-it-container');
 const mapping = {};
 const md = markdownIt({ linkify: true, html: true, breaks: true });
 const util = require('util')
+const mapUtils = require('./mapsTest.js')
+const querystring = require('querystring');
 
 module.exports = function(eleventyConfig) {
+    eleventyConfig.addFilter('getLatLong', obj => {
+        return mapUtils.lookupAddress(obj);
+    });
     eleventyConfig.addFilter('dump', obj => {
       return util.inspect(obj)
     });
