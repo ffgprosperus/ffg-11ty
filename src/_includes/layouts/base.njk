@@ -10,10 +10,11 @@
     {% else %}
       {% include "components/standardHeader.njk" %}
     {% endif %}
-    <main>
+    <main class>
       {{ content | safe }}
     </main>
     <script src="/assets/main.js"></script>
+    {%include "components/standardFooter.njk"%}
   </body>
+  
 </html>
-{%include "components/standardFooter.njk"%}
