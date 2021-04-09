@@ -1,15 +1,21 @@
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"">
-  <div class="carousel-inner">
-    {% set active = true %}
-    {%- for image in collections.carousel -%}
-      {% if active == true %}
-      <div class="carousel-item active">
-      {% else %}
-      <div class="carousel-item">
-      {% endif %}
-        <img class="d-block w-100" src="{{image.data.carouselImage}}" alt="{{image.data.altText}}"/>
+<div class="flex flex-col h-screen">
+  {% set start = true %}
+  {%- for image in collections.carousel -%}
+      {% if start == true %}
+      {% set start = false %}
+      <div class="flex flex-col bg-cover bg-fixed h-5/6 justify-center carousel-item" style="background-image:url({{image.data.carouselImage}})">
+          <div class="flex justify-between content-center h-screen">
+              <button class="self-center bg-pud_green mx-5">Left</button>
+              <button class="self-center bg-pud_green mx-5">right</button>
+          </div>
+          <footer class="flex flex-row justify-center mt-auto mb-6">
+            <a class="rounded-full bg-pud_green py-3 pb-7 px-6 mx-1 text-white" href="apply/index.html">Apply</a>
+            <a class="rounded-full bg-pud_green py-3 pb-7 px-6 mx-1 text-white" href="#">Donate</a>
+          </footer>
       </div>
-      {% set active = false %}
-    {%- endfor -%}
-  </div>
+      {% endif %}
+  {%- endfor -%}
 </div>
+
+<script>
+</script>
