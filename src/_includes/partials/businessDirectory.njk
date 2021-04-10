@@ -1,8 +1,8 @@
-
-
 <div>
   <!-- place stuff on map-->
   {%- for address in collections.maps -%}
-    <p>{{address.data.address | getLatLong }}</p>
+    <p>{{ set return = address.data.address | getLatLong | dump}}</p>
+    {{ return | createMapElement }}
+    <map-element title=address.data.businessName, location=return/>
   {%- endfor -%}
 </div>

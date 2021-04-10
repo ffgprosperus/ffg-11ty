@@ -1,36 +1,34 @@
-//import { Loader } from "@googlemaps/js-api-loader"
-
-/*const loader = new Loader({
-    apiKey: "AIzaSyCfpU4ZBRpxXM65E3TDMo2uGPz_yMfpCew",
-    version: "weekly"
-});*/
-
 const https = require('https');
 const querystring = require('querystring');
 
 function lookupAddress(address) {
-  options = {
-    hostname: 'maps.googleapis.com',
-    port: 443,
-    path: '/maps/api/geocode/json?address=' + encodeURIComponent(address) + '&key=AIzaSyCfpU4ZBRpxXM65E3TDMo2uGPz_yMfpCew',
-    method: 'GET'
-  }
-  console.log(options.path)
+    return new Promise(resolve => {
+        options = {
+            hostname: 'maps.googleapis.com',
+            port: 443,
+            path: '/maps/api/geocode/json?address=' + encodeURIComponent(address) + '&key=AIzaSyCfpU4ZBRpxXM65E3TDMo2uGPz_yMfpCew',
+            method: 'GET'
+        }
+        console.log(address)
+        const req = https.request(options, res => {
+            var jsonResponse = ''
+            res.on('data', d => {
+                console.log('getting data')
+                jsonResponse += d    
+            })
 
-  const req = https.request(options, res => {
-      console.log(`statusCode: ${res.statusCode}`)
+            res.on('error', err => {
+                console.error(err)
+            })
 
-      res.on('data', d => {
-        //return this from the function
-            process.stdout.write(d)
-          })
-  })
+            res.on('end', d => {
+                console.log(jsonResponse)
+                resolve(JSON.parse(jsonResponse))
+            })
+        })
 
-  req.on('error', error => {
-      console.error(error)
-  })
-
-  req.end()
+        req.end()
+    })
 }
 
 module.exports.lookupAddress = lookupAddress;

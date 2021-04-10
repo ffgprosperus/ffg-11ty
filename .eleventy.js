@@ -10,8 +10,11 @@ const mapUtils = require('./mapsTest.js')
 const querystring = require('querystring');
 
 module.exports = function(eleventyConfig) {
-    eleventyConfig.addFilter('getLatLong', obj => {
-        return mapUtils.lookupAddress(obj);
+    eleventyConfig.addNunjucksAsyncFilter('getLatLong', function(address, callback) {
+        mapUtils.lookupAddress(address).then(res => {
+            console.log(util.inspect(res))
+            callback(null, res.results[0].geometry.location)
+        });
     });
     eleventyConfig.addFilter('dump', obj => {
       return util.inspect(obj)
