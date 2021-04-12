@@ -8,14 +8,17 @@ const md = markdownIt({ linkify: true, html: true, breaks: true });
 const util = require('util')
 const mapUtils = require('./mapsTest.js')
 const querystring = require('querystring');
+const createMap = require('./createMapWithMarkers.js')
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addNunjucksAsyncFilter('getLatLong', function(address, callback) {
         mapUtils.lookupAddress(address).then(res => {
+            console.log('Running')
             console.log(util.inspect(res))
             callback(null, res.results[0].geometry.location)
         });
     });
+    eleventyConfig.addFilter("generateMap", createMap.createMapWithMarkers);
     eleventyConfig.addFilter('dump', obj => {
       return util.inspect(obj)
     });
