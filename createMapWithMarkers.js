@@ -2,14 +2,14 @@ var map;
 var locations = [];
 
 function createMapWithMarkers(latLong) {
-      var location = {};
-      //location.title = directoryCollection.businessName;
-      location.latitude = latLong.latitude;
-      location.longitude = latLong.longitude;
-      //location.email = directoryCollection.businessEmail;
-      // location.mobile = directoryCollection.businessMobile;
-      // location.address = directoryCollection.businessAddress;
-      locations.push(location);
+      var businessLocation = {};
+      businessLocation.title = directoryCollection.name;
+      businessLocation.latitude = latLong.latitude;
+      businessLocation.longitude = latLong.longitude;
+      businessLocation.email = directoryCollection.businessEmail;
+      businessLocation.mobile = directoryCollection.businessMobile;
+      businessLocation.address = directoryCollection.businessAddress;
+      locations.push(businessLocation);
 
     var mapOptions = {
       zoom: 10,
@@ -29,25 +29,27 @@ function createMapWithMarkers(latLong) {
     map.fitBounds(bounds);
 }
 
-function createMarker(map, location, infowindow) {
+function createMarker(map, businessLocation, infowindow) {
 
   var position = {
-    lat: parseFloat(location.latitude),
-    lng: parseFloat(location.longitude)
+    lat: parseFloat(businessLocation.latitude),
+    lng: parseFloat(businessLocation.longitude)
   };
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    // title: location.title,
+    title: businessLocation.name,
   });
-  // google.maps.event.addListener(marker, 'click', function() {
-  //   infowindow.setContent('<div>'+
-  //   '<p><strong>' + ((location.url === undefined) ? location.title : ('<a href="' + location.url +'">' + location.title + '</a>')) + '</strong></p>' +
-  //   ((location.mobile === undefined) ? "" : ('<p><strong>Phone: </strong>' + location.mobile + '</p>')) +
-  //   ((location.email === undefined) ? "" : ('<p><strong>Email: </strong>' + location.email + '</p>')) +
-  //   ((location.address === undefined) ? "" : ('<p><strong>Address: </strong>' + location.address + '</p>')) +
-  //   '</div>');
-  //   infowindow.open(map, marker);
-  // });
+   google.maps.event.addListener(marker, 'click', function() {
+     infowindow.setContent('<div>'+
+     '<p><strong>' + ((businessLocation.url === undefined) ? businessLocation.title : ('<a href="' + businessLocation.url +'">' + businessLocation.title + '</a>')) + '</strong></p>' +
+     ((businessLocation.mobile === undefined) ? "" : ('<p><strong>Phone: </strong>' + businessLocation.mobile + '</p>')) +
+     ((businessLocation.email === undefined) ? "" : ('<p><strong>Email: </strong>' + businessLocation.email + '</p>')) +
+     ((businessLocation.address === undefined) ? "" : ('<p><strong>Address: </strong>' + businessLocation.address + '</p>')) +
+     '</div>');
+     infowindow.open(map, marker);
+   });
   return marker;
 }
+
+module.exports = { createMarker, createMapWithMarkers }
