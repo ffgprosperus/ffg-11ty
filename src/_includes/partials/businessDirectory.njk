@@ -50,7 +50,9 @@ function initializeMap(directoryCollection) {
       var new_marker = createMarker(map, locations[i], infowindow);
       bounds.extend(new_marker.position);
     }
+    map.setOptions({ styles: [ { featureType: "poi", stylers: [{visibility: "off"}] } ] })
     map.fitBounds(bounds);
+
 }
 
 function createMarker(map, businessLocation, infowindow) {
