@@ -1,0 +1,19 @@
+---
+label: Business Pinpoint
+hide_body: true
+fields:
+- type: text
+  name: tags
+  label: tags
+- type: text
+  name: address
+  label: address
+- type: text
+  name: businessPhone
+  label: businessPhone
+- type: text
+  name: businessName
+  label: businessName
+- type: text
+  name: businessEmail
+  label: businessEmail
