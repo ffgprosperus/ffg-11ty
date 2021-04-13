@@ -1,13 +1,7 @@
 <div id="map" style="height: 800px; width: 600px">
 </div>
+{{ collections.maps | createMapsJson }}
 
-<div>
-  {%- for address in collections.maps -%}
-    {%- set return = address.data | createMapsJson -%}
-  {%- endfor -%}
-  <button onclick="loadDoc()">Request</button>
-  <p id="test"></p>
-</div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script>
@@ -23,18 +17,20 @@ function loadDoc() {
 }
 
 var map;
-var locations = [];
 
 function initializeMap(directoryCollection) {
-      var businessLocation = {};
-      businessLocation.title = directoryCollection.name;
-      businessLocation.latitude = directoryCollection.latitude;
-      businessLocation.longitude = directoryCollection.longitude;
-      businessLocation.email = directoryCollection.businessEmail;
-      businessLocation.mobile = directoryCollection.businessMobile;
-      businessLocation.address = directoryCollection.businessAddress;
-      locations.push(businessLocation);
+    locations = []
 
+    directoryCollection.forEach(location => {
+      var businessLocation = {};
+      businessLocation.title = location.name;
+      businessLocation.latitude = location.latitude;
+      businessLocation.longitude = location.longitude;
+      businessLocation.email = location.businessEmail;
+      businessLocation.mobile = location.businessMobile;
+      businessLocation.address = location.businessAddress;
+      locations.push(businessLocation);
+    })
     var mapOptions = {
       zoom: 10,
       center: new google.maps.LatLng(0, 0)

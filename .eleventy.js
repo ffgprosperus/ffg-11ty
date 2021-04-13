@@ -6,33 +6,26 @@ const markdownItCont = require('markdown-it-container');
 const mapping = {};
 const md = markdownIt({ linkify: true, html: true, breaks: true });
 const util = require('util')
-const mapUtils = require('./mapsTest.js')
+const mapUtils = require('./mapUtils.js')
 const querystring = require('querystring');
-const createMap = require('./createMapWithMarkers.js')
 const fs = require('fs')
 
 module.exports = function(eleventyConfig) {
-    eleventyConfig.addNunjucksAsyncFilter('createMapsJson', function(businessInfo, callback) {
-        mapUtils.lookupAddress(businessInfo.address).then(res => {
-            console.log('Running')
-            console.log(util.inspect(res))
-            var newBusinessInfo = {}
+    eleventyConfig.addNunjucksAsyncFilter('createMapsJson', function(businessCollection, callback) {
+        promises = []
+        businessCollection.forEach(businessInfo => {
+            promises.push(mapUtils.lookupAddress(businessInfo.data))
+        })
 
-            console.log(util.inspect(res.results[0].geometry.location))
-            newBusinessInfo['latitude'] = res.results[0].geometry.location.lat
-            newBusinessInfo['longitude'] = res.results[0].geometry.location.lng
-            newBusinessInfo['address'] = businessInfo.address
-            newBusinessInfo['email'] = businessInfo.businessEmail
-            newBusinessInfo['mobile'] = businessInfo.businessPhone
-            newBusinessInfo['name'] = businessInfo.businessName
-
-            fs.writeFile('build/businessInfo.json', JSON.stringify(newBusinessInfo), (err) => {
-                console.log('error writing')
+        Promise.all(promises).then((result) => {
+            filteredResult = result.filter(el => { return el != null })
+            console.log(filteredResult)
+             fs.writeFile('build/businessInfo.json', JSON.stringify(filteredResult), (err) => {
+                console.log('done writing')
                 if(err) throw err;
-            });
-            res.results[0].geometry.location
-            callback(null, null)
-        });
+                callback(null, null)
+            });           
+        })
     });
     eleventyConfig.addFilter('generateMap', obj => { 
         createMap.createMapWithMarkers(obj)
