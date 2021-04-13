@@ -9,6 +9,11 @@ sections:
 - type: document
   path: src/index.md
   label: starter
+- type: directory
+  path: src/map_pinpoint_collection
+  label: Businesses
+  create: documents
+  match: "**/*"
 - type: document
   path: src/about/index.md
   label: About
