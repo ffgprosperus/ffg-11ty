@@ -36,3 +36,5 @@ fields:
   description: Email of the business. No formatting enforced.
   config:
     required: true
+pages:
+- src/map_pinpoint_collection/ProsperUS Detroit.md
