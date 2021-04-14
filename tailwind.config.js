@@ -28,6 +28,7 @@ module.exports = {
         width: ['focus-within', 'hover', 'focus'],
         padding: ['focus'],
         transitionTimingFunction: ['hover', 'focus'],
+        transform: ['hover', 'focus'],
       }
     },
 }

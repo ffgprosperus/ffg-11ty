@@ -1,7 +1,7 @@
 ---
 title: About us
 description: What we do.
-layout: placeholder.njk
+layout: about.njk
 eleventyNavigation:
   key: About
   order: 0

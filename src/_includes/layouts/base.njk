@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-full">
 <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-43MNK8C6YJ"</script>>
   <script>
@@ -13,17 +13,19 @@
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
      {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
   </head>
-  <body class="text-base">
-    {% if (title == "Home") %}
-      {% include "components/heroHead.njk" %}
-    {% else %}
-      {% include "components/standardHeader.njk" %}
-    {% endif %}
-    <main class>
-      {{ content | safe }}
-    </main>
-    <script src="/assets/main.js"></script>
-    {%include "components/standardFooter.njk"%}
+  <body class="w-full text-base">
+    <article>
+      {% if (title == "Home") %}
+        {% include "components/heroHead.njk" %}
+      {% else %}
+        {% include "components/standardHeader.njk" %}
+      {% endif %}
+      <main class="min-h-screen">
+        {{ content | safe }}
+      </main>
+      <script src="/assets/main.js"></script>
+      {%include "components/standardFooter.njk"%}
+    </article>
   </body>
   
 </html>
