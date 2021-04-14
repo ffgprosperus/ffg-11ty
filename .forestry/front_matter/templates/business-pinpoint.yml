@@ -1,0 +1,40 @@
+---
+label: Business Pinpoint
+hide_body: true
+fields:
+- type: text
+  name: tags
+  label: tags
+  hidden: true
+  config:
+    required: true
+  description: Marks it for inclusion in the business map (do not edit)
+  default: maps
+- type: text
+  name: address
+  label: address
+  description: Address of the business. Format as:<br>1111 East Main Street, Detroit,
+    MI, USA<br>Incorrect formatting can cause the business not to display, so please
+    validate.
+  config:
+    required: true
+- type: text
+  name: businessPhone
+  label: businessPhone
+  description: Phone number of the business. No formatting enforced.
+  config:
+    required: true
+- type: text
+  name: businessName
+  label: businessName
+  description: Name of the business. No formatting enforced.
+  config:
+    required: true
+- type: text
+  name: businessEmail
+  label: businessEmail
+  description: Email of the business. No formatting enforced.
+  config:
+    required: true
+pages:
+- src/map_pinpoint_collection/ProsperUS Detroit.md

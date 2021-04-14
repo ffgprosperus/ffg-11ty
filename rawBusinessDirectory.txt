@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Map</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+
+    <div id="map"></div>
+    <!-- Replace the value of the key parameter in the call to the Google Maps JavaScript API URL below with your own API key. -->
+    <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfpU4ZBRpxXM65E3TDMo2uGPz_yMfpCew&callback=initializeMap" async
+     >
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  </body>
+</html>
+
+
+
+
+
+var map;
+var locations = [];
+
+function initializeMap(directoryCollection) {
+    $(directoryCollection).each(function() {
+      var location = {};
+      location.title = directoryCollection.businessName;
+      location.latitude = directoryCollection
+      location.longitude = parseFloat(this[5]);
+      location.email = this[1];
+      location.mobile = this[2];
+      location.address = this[3];
+      locations.push(location);
+    });
+
+    var mapOptions = {
+      zoom: 10,
+      center: new google.maps.LatLng(0, 0)
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    setLocations(map, locations);
+}
+
+
+function setLocations(map, locations) {
+  var bounds = new google.maps.LatLngBounds();
+  // Create nice, customised pop-up boxes, to appear when the marker is clicked on
+  var infowindow = new google.maps.InfoWindow({
+    content: "Content String"
+  });
+  for (var i = 0; i < locations.length; i++) {
+    var new_marker = createMarker(map, locations[i], infowindow);
+    bounds.extend(new_marker.position);
+  }
+  map.fitBounds(bounds);
+}
+
+function createMarker(map, location, infowindow) {
+
+  var position = {
+    lat: parseFloat(location.latitude),
+    lng: parseFloat(location.longitude)
+  };
+  var marker = new google.maps.Marker({
+    position: position,
+    map: map,
+    title: location.title,
+  });
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent('<div>'+
+    '<p><strong>' + ((location.url === undefined) ? location.title : ('<a href="' + location.url +'">' + location.title + '</a>')) + '</strong></p>' +
+    ((location.mobile === undefined) ? "" : ('<p><strong>Phone: </strong>' + location.mobile + '</p>')) +
+    ((location.email === undefined) ? "" : ('<p><strong>Email: </strong>' + location.email + '</p>')) +
+    ((location.address === undefined) ? "" : ('<p><strong>Address: </strong>' + location.address + '</p>')) +
+    '</div>');
+    infowindow.open(map, marker);
+  });
+  return marker;
+}

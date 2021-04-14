@@ -6,8 +6,30 @@ const markdownItCont = require('markdown-it-container');
 const mapping = {};
 const md = markdownIt({ linkify: true, html: true, breaks: true });
 const util = require('util')
+const mapUtils = require('./mapUtils.js')
+const querystring = require('querystring');
+const fs = require('fs')
 
 module.exports = function(eleventyConfig) {
+    eleventyConfig.addNunjucksAsyncFilter('createMapsJson', function(businessCollection, callback) {
+        promises = []
+        businessCollection.forEach(businessInfo => {
+            promises.push(mapUtils.lookupAddress(businessInfo.data))
+        })
+
+        Promise.all(promises).then((result) => {
+            filteredResult = result.filter(el => { return el != null })
+            console.log(filteredResult)
+             fs.writeFile('build/businessInfo.json', JSON.stringify(filteredResult), (err) => {
+                console.log('done writing')
+                if(err) throw err;
+                callback(null, null)
+            });           
+        })
+    });
+    eleventyConfig.addFilter('generateMap', obj => { 
+        createMap.createMapWithMarkers(obj)
+    });
     eleventyConfig.addFilter('dump', obj => {
       return util.inspect(obj)
     });
