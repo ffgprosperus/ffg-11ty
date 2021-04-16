@@ -38,3 +38,4 @@ fields:
     required: true
 pages:
 - src/map_pinpoint_collection/ProsperUS Detroit.md
+- src/map_pinpoint_collection/business3.md
