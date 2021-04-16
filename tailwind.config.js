@@ -12,6 +12,15 @@ module.exports = {
           fontFamily: {
             lato: ["Lato"]
           },
+          height: theme =>({
+            "screen-3/5": "60vh",
+            "screen-3/4": "75vh",
+            "screen-4/5": "90vh",
+            "screen/2": "50vh",
+            "screen/3": "calc(100vh / 3)",
+            "screen/4": "calc(100vh / 4)",
+            "screen/5": "calc(100vh / 5)",
+          }),
           transitionTimingFunction: {
             'search-in-out': 'cubic-bezier(0.18, 0.89, 0.32, 1.28)',
             'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
