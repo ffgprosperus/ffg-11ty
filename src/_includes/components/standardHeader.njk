@@ -1,24 +1,27 @@
 <div class="h-20">
-  <div class="fixed w-full flex flex-col align-items-center mb-4">
+  <header class="fixed w-full flex flex-col align-items-center mb-4">
     <div class="bg-red-600 h-6"></div>
-    <nav class="header flex flex-row bg-white items-center justify-around flex-wrap px-5 py-3 border-b">
-      <a class="" href="/"><img width="160" src="../images/logo.png" /></a>
+    <nav class="py-1 px-5 flex flex-col md:flex-row md:items-center flex-wrap justify-between bg-white border-b">
+      <a class="mr-20" href="/"><img width="160" src="../images/logo.png" /></a>
       {% set navPages = collections.all | eleventyNavigation %}
-      <ul class="ml-14">
+      <ul class="md:space-x-9">
         {% for entry in navPages %}
           <li class="inline">
             <a
             href="{{ entry.url }}"
-            class="uppercase py-1 mt-6 px-2 font-lato mr-4 inline-block
-            {{'border-b-2 border-pud_green font-medium' if entry.url in page.url
-            else 'text-gray-700 hover:text-gray-900'}}">
+            class="uppercase font-lato inline-block
+            {{'border-b-2 border-pud_green font-bold' if entry.url in page.url
+            else 'text-gray-700 hover:text-gray-900 hover:underline'}}">
             {{ entry.title }}
           </a>
           </li>
-        {% endfor %}
+          {% endfor %}
+          <li class="inline"><a class="rounded-md bg-pud_green py-3 px-5 text-white" href="apply/index.html">CONTRIBUTE</a>
+          
+        
       </ul>
-      <a class="rounded-md bg-pud_green py-2 px-4 mx-1 mt-6 text-white" href="apply/index.html">CONTRIBUTE</a>
-      <div class="flex w-56 mt-6">
+      
+      <div class="flex w-60">
         <div class="ml-auto relative flex items-center space-between flex-row text-gray-600 border-2 border-pud_green rounded-full focus-within:text-gray-400 w-11 h-11 focus-within:w-full focus-within:h-18 transition-width transition duration-900 search-in-out overflow-hidden search-bar">
           <input type="text" class="absolute top-0 bottom-0 left-0 flex-grow-1 2xl w-4/5 search-bar__input cursor-pointer focus:outline-none focus:cursor-text bg-opacity-25 h-auto opacity-0 focus:opacity-100 focus:pl-4" placeholder="Search..." area-label="">
           <button id='search_bar' class="search-bar__submit align-middle rounded-full h-9 w-9 p-1  cursor-pointer ml-auto transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
@@ -26,17 +29,6 @@
           </button>
         </div>
       </div>
-            
-
-
     </nav>
-    <div class="search-bar-container h-0 py-0 opacity-0 flex w-full self-center bg-white justify-center">
-      <div class="w-1/2 h-18 relative flex items-center space-between flex-row text-gray-600 border-2 border-pud_green rounded-full text-gray-400">
-        <input type="text" class="absolute top-0 bottom-0 left-0 flex-grow-1 2xl w-4/5 search-bar__input cursor-pointer focus:outline-none focus:cursor-text bg-opacity-25 h-auto opacity-0 focus:opacity-100 focus:pl-4" placeholder="Search..." area-label="">
-        <button id='' class="search-bar__submit align-middle rounded-full h-9 w-9 p-1  cursor-pointer mr-auto transition-colors duration-150ms ease-in-out hover:shadow-xl" aria-label="submit search">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </button>
-      </div>
-    </div>
-  </div>
+  </header>
 </div>
