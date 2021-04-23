@@ -39,9 +39,9 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    /* background-image: url("../images/hero.jpg"); */
+    /* background-image: url("../images/hero.png"); */
     background-image:linear-gradient(rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.7)), url('../images/hero.jpg');
+    rgba(0, 0, 0, 0.7)), url('../images/hero.png');
     background-size: cover;
     background-attachment: fixed;
     -webkit-background-size: cover;
