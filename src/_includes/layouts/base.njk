@@ -12,6 +12,7 @@
   <head>
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
      {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body class="w-full text-base">
     <article>
@@ -23,9 +24,11 @@
       <main class="min-h-screen pt-20">
         {{ content | safe }}
       </main>
-      <script src="/assets/main.js"></script>
+
       {%include "components/standardFooter.njk"%}
+      <script src="/assets/main.js"></script>
     </article>
+    <script src="/assets/main.js"></script>
   </body>
   
 </html>
