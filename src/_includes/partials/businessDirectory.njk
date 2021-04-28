@@ -1,3 +1,4 @@
+<iframe src="https://www.google.com/maps/d/embed?mid=1PMYssio8sPeSjTEMVtRaP-Ij_x8" width="800" height="600"></iframe>
 
 <div class="flex flex-col items-center justify-between mb-2">
   <h1 class="text-3xl">Explore Our Network</h1>
@@ -6,11 +7,9 @@
           <p class="mx-2">Our Constituents</p>
       <div class="w-8 h-0.5 bg-red-600 mt-3"></div>
     </div>
-  <div id="map" class="self-center" style="height: 600px; width: 800px;">
-    
+  <div id="map" class="self-center" style="height: 600px; width: 800px;">    
+  </div>
 </div>
-</div>
-
 
 {{ collections.maps | createMapsJson }}
 
@@ -29,6 +28,11 @@ function loadDoc() {
 }
 
 var map;
+const infoControl = document.createElement("div");
+infoControl.classList.add("bg-gray-600");
+infoControl.classList.add("text-gray-300");
+infoControl.style.height = "100%";
+infoControl.style.width = "35%";
 
 function initializeMap(directoryCollection) {
     locations = []
@@ -48,6 +52,11 @@ function initializeMap(directoryCollection) {
       center: new google.maps.LatLng(0, 0)
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    infoControl.addEventListener("click", () => {
+        console.log('worked')
+        map.controls[google.maps.ControlPosition.LEFT_CENTER].pop();
+    });
 
     var bounds = new google.maps.LatLngBounds();
     // Create nice, customised pop-up boxes, to appear when the marker is clicked on
@@ -81,6 +90,17 @@ function createMarker(map, businessLocation, infowindow) {
      ((businessLocation.email === undefined) ? "" : ('<p><strong>Email: </strong>' + businessLocation.email + '</p>')) +
      ((businessLocation.address === undefined) ? "" : ('<p><strong>Address: </strong>' + businessLocation.address + '</p>')) +
      '</div>');
+     infoControl.innerHTML = '<div>'+  
+     '<p><strong>' + ((businessLocation.url === undefined) ? businessLocation.title : ('<a href="' + businessLocation.url +'">' + businessLocation.title + '</a>')) + '</strong></p>' +
+     ((businessLocation.mobile === undefined) ? "" : ('<p><strong>Phone: </strong>' + businessLocation.mobile + '</p>')) +
+     ((businessLocation.email === undefined) ? "" : ('<p><strong>Email: </strong>' + businessLocation.email + '</p>')) +
+     ((businessLocation.address === undefined) ? "" : ('<p><strong>Address: </strong>' + businessLocation.address + '</p>')) +
+     '</div>';
+     
+     if(map.controls[google.maps.ControlPosition.LEFT_CENTER].length > 0) {
+        map.controls[google.maps.ControlPosition.LEFT_CENTER].pop();
+     }
+     map.controls[google.maps.ControlPosition.LEFT_CENTER].push(infoControl);
      infowindow.open(map, marker);
   })
   return marker
