@@ -1,5 +1,8 @@
 module.exports = {
     theme: {
+      backgroundPosition: {
+        'bg-image-y': 'center top 1rem'
+      },
         extend: {
           transitionProperty: {
               'width': 'width',

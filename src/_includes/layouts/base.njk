@@ -13,6 +13,8 @@
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
      {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
   </head>
   <body class="w-full text-base">
     <article>
@@ -21,14 +23,13 @@
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
-      <main class="min-h-screen pt-20">
+      <main class="min-h-screen pt-24">
         {{ content | safe }}
       </main>
-
-      {%include "components/standardFooter.njk"%}
       <script src="/assets/main.js"></script>
+      {%include "components/standardFooter.njk"%}
     </article>
-    <script src="/assets/main.js"></script>
+    
   </body>
   
 </html>
