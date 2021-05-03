@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="w-full">
+<html lang="en" class="">
 <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-43MNK8C6YJ"</script>>
   <script>
@@ -16,14 +16,14 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
   </head>
-  <body class="w-full text-base">
-    <article>
+  <body class="text-base overflow-x-hidden bg-green-900">
+    <article class="">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
-      <main class="min-h-screen pt-24">
+      <main class="min-h-screen pt-32">
         {{ content | safe }}
       </main>
       <script src="/assets/main.js"></script>
