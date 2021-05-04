@@ -1,38 +1,39 @@
-
-<div class="fixed w-full lg:w-full flex flex-col">
-  <header x-data="{ mobileMenuOpen : false }" class="px-3 flex flex-wrap flex-row items-center bg-white justify-between border-b-2 py-2 md:px-3">
-    <a href="#" class="order-1">
-      <span class="sr-only">themes.dev</span>
-      <img class="h-20 lg:20" src="../images/logo.png" alt="Themes.dev Logo" title="Themes.dev Logo">
-    </a>
-    <button @click="mobileMenuOpen = !mobileMenuOpen" class="order-last inline-block lg:hidden w-10 h-10 bg-gray-200 text-gray-600 p-1">
-      <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
-    {% set navPages = collections.all | eleventyNavigation %}
-    <nav class="fixed lg:relative top-24 left-0 text-center lg:top-3 lg:flex flex-col lg:flex-row lg:space-x-10 lg:order-3 font-semibold lg:w-auto bg-white shadow-md rounded-b-lg lg:rounded-none lg:shadow-none lg:bg-transparent p-6 pt-0 lg:p-0"
-    :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false"
-    >
-      {% for entry in navPages %}
-      <a href="{{ entry.url }}" class="w-1/8 py-3 border-b lg:border-none lg:py-2 self-center uppercase font-lato inline-block
-        {{'border-b-2 border-pud_green font-bold' if entry.url in page.url
-          else 'text-gray-700 hover:text-gray-900 hover:underline'}}">
-        {{ entry.title }}
+<div class="h-20 lg:h-24">
+  <div class="fixed w-full lg:w-full flex flex-col">
+    <header x-data="{ mobileMenuOpen : false }" class="px-3 flex flex-wrap flex-row items-center bg-white justify-between border-b-2 py-2 md:px-3">
+      <a href="#" class="order-1">
+        <span class="sr-only">themes.dev</span>
+        <img class="h-16 lg:h-20" src="../images/logo.png" alt="Themes.dev Logo" title="Themes.dev Logo">
       </a>
-      {% endfor %}
-      <div class="flex flex-row self-center justify-between rounded-full border-2 border-gray-300  mt-3 lg:mt-0 text-pud_green">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 self-center ml-2" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-        </svg>
-        <a class="py-2 px-2 mr-1 w-1/8 self-center text-gray-700 " href="apply/index.html">CONTRIBUTE</a>
-      </div>
-    </nav>
-      <div class="order-2 self-center flex lg:order-4">
-        <div class="self-center text-gray-600">
-          <button id='search_bar' class="align-middle rounded-full h-8 w-8 mr-20 lg:mr-3 cursor-pointer transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          </button>
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="order-last inline-block lg:hidden w-10 h-10 bg-gray-200 text-gray-600 p-1">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+      {% set navPages = collections.all | eleventyNavigation %}
+      <nav class="fixed w-full lg:relative top-24 left-0 text-center lg:top-3 lg:flex flex-col lg:flex-row lg:space-x-10 lg:order-3 font-semibold lg:w-auto bg-white shadow-md rounded-b-lg lg:rounded-none lg:shadow-none lg:bg-transparent p-6 pt-0 lg:p-0"
+      :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false"
+      >
+        {% for entry in navPages %}
+        <a href="{{ entry.url }}" class="w-1/8 py-3 border-b lg:border-none lg:py-2 self-center uppercase font-lato inline-block
+          {{'border-b-2 border-pud_green font-bold' if entry.url in page.url
+            else 'text-gray-700 hover:text-gray-900 hover:underline'}}">
+          {{ entry.title }}
+        </a>
+        {% endfor %}
+        <div class="flex flex-row self-center justify-between rounded-full border-2 border-gray-300  mt-3 lg:mt-0 text-pud_green">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 self-center ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+          </svg>
+          <a class="py-2 px-2 mr-1 w-1/8 self-center text-gray-700 " href="apply/index.html">CONTRIBUTE</a>
         </div>
-    </div>
-    
-  </header>
+      </nav>
+        <div class="order-2 self-center flex lg:order-4">
+          <div class="self-center text-gray-600">
+            <button id='search_bar' class="align-middle rounded-full h-6 w-6 mr-20 lg:mr-3 cursor-pointer transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-7 h-7"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+          </div>
+      </div>
+      
+    </header>
+  </div>
 </div>
