@@ -4,6 +4,9 @@ module.exports = {
 			'bg-image-y': 'center top 1rem',
 		},
 		extend: {
+			screens: {
+				xs: '280px',
+			},
 			transitionProperty: {
 				width: 'width',
 				height: 'height',

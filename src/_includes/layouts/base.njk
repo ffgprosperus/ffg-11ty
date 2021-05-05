@@ -16,14 +16,14 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
   </head>
-  <body class="text-base overflow-x-hidden bg-green-900">
-    <article class="">
+  <body class="text-base w-full box-border overflow-x-hidden bg-green-900">
+    <article class="w-full">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
-      <main class="min-h-screen">
+      <main class="">
         {{ content | safe }}
       </main>
       <script src="/assets/main.js"></script>
