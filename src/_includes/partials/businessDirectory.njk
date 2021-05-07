@@ -7,7 +7,16 @@
           <p class="mx-2">Our Constituents</p>
       <div class="w-8 h-0.5 bg-red-600 mt-3"></div>
     </div>
-  <div id="map" class="self-center" style="height: 600px; width: 800px;">    
+  <div class="flex">
+      <div class="w-2/5 flex flex-col align-center bg-gray-200">
+        <div class="pt-2 mx-auto text-gray-600">
+            <input id="map-search-bar" class="border-2 border-gray-300 bg-white h-10 px-5 rounded-lg text-sm focus:outline-none" type="search" name="search" placeholder="Search">
+        </div>
+        <div id="search-pane" class="overflow-y-scroll">
+        </div>
+      </div>
+      <div id="map" class="self-center" style="height: 600px; width: 800px;">    
+      </div>
   </div>
 </div>
 
@@ -28,35 +37,16 @@ function loadDoc() {
 }
 
 var map;
-const infoControl = document.createElement("div");
-infoControl.classList.add("bg-gray-600");
-infoControl.classList.add("text-gray-300");
-infoControl.style.height = "100%";
-infoControl.style.width = "35%";
 
 function initializeMap(directoryCollection) {
     locations = []
 
-    directoryCollection.forEach(location => {
-      var businessLocation = {};
-      businessLocation.title = location.name;
-      businessLocation.latitude = location.latitude;
-      businessLocation.longitude = location.longitude;
-      businessLocation.email = location.businessEmail;
-      businessLocation.mobile = location.businessMobile;
-      businessLocation.address = location.businessAddress;
-      locations.push(businessLocation);
-    })
+    directoryCollection.forEach(location => { locations.push(location); })
     var mapOptions = {
       zoom: 10,
       center: new google.maps.LatLng(0, 0)
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    infoControl.addEventListener("click", () => {
-        console.log('worked')
-        map.controls[google.maps.ControlPosition.LEFT_CENTER].pop();
-    });
 
     var bounds = new google.maps.LatLngBounds();
     // Create nice, customised pop-up boxes, to appear when the marker is clicked on
@@ -84,23 +74,17 @@ function createMarker(map, businessLocation, infowindow) {
     title: businessLocation.name,
   });
    google.maps.event.addListener(marker, 'click', function() {
-     infowindow.setContent('<div>'+
-     '<p><strong>' + ((businessLocation.url === undefined) ? businessLocation.title : ('<a href="' + businessLocation.url +'">' + businessLocation.title + '</a>')) + '</strong></p>' +
-     ((businessLocation.mobile === undefined) ? "" : ('<p><strong>Phone: </strong>' + businessLocation.mobile + '</p>')) +
-     ((businessLocation.email === undefined) ? "" : ('<p><strong>Email: </strong>' + businessLocation.email + '</p>')) +
-     ((businessLocation.address === undefined) ? "" : ('<p><strong>Address: </strong>' + businessLocation.address + '</p>')) +
-     '</div>');
-     infoControl.innerHTML = '<div>'+  
-     '<p><strong>' + ((businessLocation.url === undefined) ? businessLocation.title : ('<a href="' + businessLocation.url +'">' + businessLocation.title + '</a>')) + '</strong></p>' +
-     ((businessLocation.mobile === undefined) ? "" : ('<p><strong>Phone: </strong>' + businessLocation.mobile + '</p>')) +
-     ((businessLocation.email === undefined) ? "" : ('<p><strong>Email: </strong>' + businessLocation.email + '</p>')) +
-     ((businessLocation.address === undefined) ? "" : ('<p><strong>Address: </strong>' + businessLocation.address + '</p>')) +
-     '</div>';
-     
-     if(map.controls[google.maps.ControlPosition.LEFT_CENTER].length > 0) {
-        map.controls[google.maps.ControlPosition.LEFT_CENTER].pop();
-     }
-     map.controls[google.maps.ControlPosition.LEFT_CENTER].push(infoControl);
+     var markerDiv = '<div class="flex flex-col">' + '<div class="flex justify-center"><p><strong>' + businessLocation.title + '</strong></p></div>';
+     markerDiv += '<p><strong>Phone: </strong>' + businessLocation.mobile + '</p>'
+     markerDiv += '<p><strong>Email: </strong>' + businessLocation.email + '</p>'
+     markerDiv += '<p><strong>Address: </strong>' + businessLocation.address + '</p>'
+     markerDiv += '<p><strong>Industry: </strong>' + businessLocation.industry+ '</p>'
+     markerDiv += '<p><strong>Type: </strong>' + businessLocation.type+ '</p>'
+     markerDiv += '<p><strong>Training Location: </strong>' + businessLocation.trainingLocation+ '</p>'
+     markerDiv += '<p><strong>TA Provider: </strong>' + businessLocation.taProvider + '</p>'
+     markerDiv += '<p><strong>Program User: </strong>' + businessLocation.programUser + '</p>'
+     markerDiv += '</div>'
+     infowindow.setContent(markerDiv);
      infowindow.open(map, marker);
   })
   return marker
