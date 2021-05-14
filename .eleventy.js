@@ -69,7 +69,7 @@ module.exports = function(eleventyConfig) {
       passthroughFileCopy: true,
       dir: {
         input: 'src',
-        output: 'build'
+        output: process.env.FFG_BUILD_DIR || 'build'
       }
 
     }
