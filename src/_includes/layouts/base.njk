@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="w-full">
+<html lang="en" class="">
 <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-43MNK8C6YJ"</script>>
   <script>
@@ -12,20 +12,24 @@
   <head>
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
      {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <title>{{title}}</title>
   </head>
-  <body class="w-full text-base">
-    <article>
+  <body class="text-base w-full  box-border overflow-x-hidden">
+    <article class="w-full">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
-      <main class="min-h-screen pt-20">
+      <main class="h-screen">
         {{ content | safe }}
       </main>
       <script src="/assets/main.js"></script>
-      {%include "components/standardFooter.njk"%}
+      {%include "components/footer3.njk"%}
     </article>
+    
   </body>
   
 </html>
