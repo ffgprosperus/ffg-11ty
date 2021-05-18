@@ -13,6 +13,7 @@ module.exports = {
 			},
 			colors: {
 				pud_green: '#477A7C',
+				pud_light_green: '#b5cacb',
 				pud_gray: '#E7E7E7',
 				pud_green_sec: '#DEF2F1',
 			},
@@ -35,6 +36,7 @@ module.exports = {
 			},
 			backgroundImage: (theme) => ({
 				'car-1': "url('../images/hero.png')",
+				'wave-pattern': "url('../images/wave-pattern.svg",
 			}),
 		},
 	},
