@@ -191,3 +191,10 @@ header {
     margin-top: 1rem;
 
 }
+
+.search-container{
+    height: 1rem;
+    padding-top: .5rem;
+    padding-bottom:.5rem;
+}
+}
