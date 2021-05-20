@@ -16,8 +16,8 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <title>{{title}}</title>
   </head>
-  <body class="text-base w-full  box-border overflow-x-hidden">
-    <article class="w-full">
+  <body class="text-base w-full">
+    <article class="flex flex-col h-screen">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
       {% elif (title == "Programs") %}
@@ -25,7 +25,7 @@
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
-      <main class="h-screen">
+      <main>
         {{ content | safe }}
       </main>
       <script src="/assets/main.js"></script>
