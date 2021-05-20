@@ -20,6 +20,8 @@
     <article class="w-full">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
+      {% elif (title == "Programs") %}
+        {% include "components/standardHeaderWithHero.njk" %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
