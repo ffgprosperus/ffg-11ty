@@ -2,14 +2,95 @@
 layout: layouts/base.njk
 ---
 
-<div class="flex flex-col">
+<div class="flex flex-col items-center">
     <div class="flex mt-8 justify-center">
         <p class="text-3xl text-pud_green">{{title}}</p>
     </div>
-    <div class="flex mt-4 content-center justify-center">
-        <p class="text-xs text-black"></p>
+    <div class="flex mt-4 text-center justify-center text-sm text-black">
+        {{content | safe}}
     </div>
-    <div class="flex flex-row justify-center rounded-full border-2 mt-4 bg-pud_green">
+    <div class="flex w-1/2 justify-center rounded-full border-2 mt-8 bg-pud_green">
         <a class="py-2 px-2 text-white" href="apply/index.html">APPLY</a>
-    </div>       
+    </div> 
 </div>
+<div class="flex flex-col bg-gray-300 mt-10 rounded-md mx-4">
+    <div class="flex flex-col items-center">
+        <img class="p-4" src="/images/logo.png" />
+    </div>
+    <div class="hidden flex items-center justify-center">
+        <div class="w-1 h-20 bg-white rounded"></div>
+    </div>
+    <div class="flex">
+        <p class="text-black text-sm px-8 pb-4">
+            "The ProsperUS entrepreneurship program helped breakdown and organize my business plan. The 1-on-1 mentorship with Marcus was so productive. I learned so much."
+            <br>
+            <br>
+            Barbara Luna<br>
+            Dream of Detroit Cohort<br>
+            Fall 2019<br>
+        </p>
+    </div>
+</div>
+
+<div class="flex flex-col items-left mt-10 bg-gray-300 rounded-md mx-4">
+    <p class="text-pud_green text-2xl px-8 pt-8 pb-4">{{title}}</p>
+    <ul class="shadow-box pb-6">
+        <li x-data="{selected:null}">
+            <button type="button" class="pt-6 px-8 text-left w-full" @click="selected !== 1 ? selected = 1 : selected = null">
+                <p class="text-lg">PROGRAM STRUCTURE</p>
+            </button>
+
+            <div class="bg-gray-200 w-full mx-0 px-8 relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                <p class="py-4">16 weeks from start to finish.<br><br>12 classes teach business ownership and management from A to Z.</p>
+            </div>
+        </li>
+        <li x-data="{selected:null}">
+            <button type="button" class="pt-6 px-8 text-left w-full" @click="selected !== 1 ? selected = 1 : selected = null">
+                <p class="text-lg">WHAT TO EXPECT</p>
+            </button>
+
+            <div class="bg-gray-200 w-full mx-0 px-8 relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                <p class="py-4">16 weeks from start to finish.<br><br>12 classes teach business ownership and management from A to Z.</p>
+            </div>
+        </li>
+        <li class="relative" x-data="{selected:null}">
+            <button type="button" class="pt-6 px-8 text-left w-full" @click="selected !== 1 ? selected = 1 : selected = null">
+                <p class="text-lg">PROGRAM COST V</p>
+            </button>
+
+            <div class="bg-gray-200 w-full mx-0 px-8 relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                <p class="py-4">16 weeks from start to finish.<br><br>12 classes teach business ownership and management from A to Z.</p>
+            </div>
+        </li>
+        <li class="relative" x-data="{selected:null}">
+            <button type="button" class="pt-6 px-8 text-left w-full" @click="selected !== 1 ? selected = 1 : selected = null">
+                <p class="text-lg">WHO'S THIS FOR? V</p>
+            </button>
+
+            <div class="bg-gray-200 w-full mx-0 px-8 relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                <p class="py-4">16 weeks from start to finish.<br><br>12 classes teach business ownership and management from A to Z.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="flex flex-col bg-gray-300 mt-10 rounded-md mx-4">
+    <div class="flex flex-col items-center">
+        <img class="p-4" src="/images/logo.png" />
+    </div>
+    <div class="flex flex-col items-left">
+        <p class="text-pud_green text-2xl px-8 pb-6">TO APPLY</p>
+        <p class="px-8 pb-4">
+            Submit an application online.<br><br>
+            Fall 2021 applications are open until 11:59 PM on Sunday, July 11th.<br><br>
+            We will do our best to interview all candidates.
+        </p>
+        <div class="flex w-1/4 self-center justify-center rounded-full border-2 mt-2 mb-4 bg-pud_green">
+            <a class="py-2 px-2 text-white" href="apply/index.html">APPLY</a>
+        </div> 
+    </div>
+</div>
+
+
+
+{% include "partials/businessDirectory.njk" %}
