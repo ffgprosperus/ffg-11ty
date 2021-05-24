@@ -3,11 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('fs');
 const os = require('os');
 
-var out_path = path.resolve(__dirname, 'build/assets');
-if (!fs.existsSync(out_path)) {
+var out_path = path.resolve(os.homedir(), 'prosperusdemo.xyz/');
+if (fs.existsSync(out_path)) {
 	out_path = path.resolve(os.homedir(), 'prosperusdemo.xyz/build/assets');
+} else {
+        out_path = path.resolve(__dirname, 'build/assets');
 }
 
+console.log('out path is ' + out_path);
 module.exports = {
 	entry: './src/scripts/main.js',
 	output: {
