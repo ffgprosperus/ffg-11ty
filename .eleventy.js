@@ -10,6 +10,7 @@ const mapUtils = require('./mapUtils.js')
 const querystring = require('querystring');
 const fs = require('fs')
 const path = require('path');
+const matter = require('gray-matter')
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addNunjucksAsyncFilter('createMapsJson', function(businessCollection, callback) {
@@ -28,11 +29,34 @@ module.exports = function(eleventyConfig) {
             });           
         })
     });
+    eleventyConfig.addFilter('getVarsFromMd', mdFile => {
+        let contents = fs.readFileSync(mdFile, function(err, data) {
+            if (err) {
+                console.log(err)
+                return ''
+            }
+            return data
+        })
+        return matter(contents)['data']
+    });
+    eleventyConfig.addFilter('getRenderedContentFromMd', mdFile => {
+        let contents = fs.readFileSync(mdFile, function(err, data) {
+            if (err) {
+                console.log(err)
+                return ''
+            }
+            return data
+        })
+        return md.render(matter(contents)['content'])
+    });
     eleventyConfig.addFilter('generateMap', obj => { 
         createMap.createMapWithMarkers(obj)
     });
     eleventyConfig.addFilter('dump', obj => {
       return util.inspect(obj)
+    });
+    eleventyConfig.addFilter('push', (target, key, value) => {
+        target[key] = value
     });
     eleventyConfig.setTemplateFormats([
         "md",

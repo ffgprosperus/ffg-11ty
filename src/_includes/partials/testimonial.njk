@@ -1,0 +1,15 @@
+<div class="flex flex-col bg-gray-300 mt-10 rounded-md mx-4">
+    <div class="flex flex-col items-center">
+        <img class="p-4" src="{{params.data.imagePath}}" />
+    </div>
+    <div class="hidden flex items-center justify-center">
+        <div class="w-1 h-20 bg-white rounded"></div>
+    </div>
+    <div class="flex">
+        <div class="text-black text-sm px-8 pb-4">
+            {{params.content | safe}}
+        </div>
+    </div>
+</div>
+
+

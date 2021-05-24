@@ -1,5 +1,5 @@
 ---
-tags: entrepreneurAccordion
+tags: entrepreneurTrainingAccordion
 title: PROGRAM STRUCTURE
 ---
 16 weeks from start to finish.
