@@ -1,0 +1,18 @@
+<section class="p-16 mx-auto flex flex-col bg-white justify-items-center">
+    <div class="flex justify-center">
+        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
+        <h1 class="mx-2 text-2xl">How to Reach ProsperUS</h1>
+        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
+    </div>
+  <h1 class="self-center text-3xl font-medium lg:px-28 py-9 text-center">Reach out to us, we'd love to hear from you!</h1>
+  <div class="flex flex-col self-center  align-center text-center text-gray-600 lg:flex-row py-10">
+    {%- for card in collections.contactCard -%}
+      <div class="transition h-90  duration-800 group mx-40 px-18 py-4 self-center rounded hover:shadow-md lg:w-1/3">
+        <h4 class="self-center text-3xl mb-5 group-hover:text-pud_green">{{card.data.title}}</h4>
+        <span class="self-center mb-5 group-hover:text-pud_green">{{ card.data.icon | safe }}</span>
+        <p class="self-center">{{card.templateContent | safe}}<p>
+
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
