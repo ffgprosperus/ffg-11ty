@@ -1,7 +1,13 @@
 ---
 layout: layouts/base.njk
 ---
+{%- from "components/component.njk" import component -%}
 <div class="flex flex-col">
-      {% include "partials/infoCardsNoHeader.njk" %}
-      {% include "partials/otherResources.njk" %}
+    {% include "partials/infoCardsNoHeader.njk" %}
+    
+    {% set directory = {'path': '/images/logos/networkDirectory.png', 'pageLink': '/directory'} %} 
+    {% set frequentlyAsked = {'path': '/images/logos/frequentlyAsked.png', 'pageLink': '/about'} %} 
+    {% set detroitResources = {'path': '/images/logos/detroitResources.png', 'pageLink': '/resources'} %} 
+    {% set args = {'data': {'resourceLinks': {'Network Directory': directory, 'ProsperUS FAQ': frequentlyAsked, 'Detroit Resources': detroitResources}}} %}
+    {{ component('partials/otherResources.njk', args) }}
 </div>
