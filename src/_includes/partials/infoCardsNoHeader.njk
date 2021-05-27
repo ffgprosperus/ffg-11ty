@@ -5,10 +5,11 @@
         <span class="self-center mb-5 group-hover:text-pud_green">{{ card.data.icon | safe }}</span>
         <h4 class="self-center text-2xl mb-2 group-hover:text-pud_green">{{card.data.title}}</h4>
         <p class="self-center">{{card.templateContent | safe}}<p>
-        <button class="transition duration-500 opacity-0 bg-pud_green text-white font-bold py-2 px-4 mt-5 rounded group-hover:opacity-100">
-            Learn More
-        </button>
-
+        <a href="{{card.data.link}}">
+            <button class="transition duration-500 opacity-0 bg-pud_green text-white font-bold py-2 px-4 mt-5 rounded group-hover:opacity-100">
+                Learn More
+            </button>
+        </a>
       </div>
     {%- endfor -%}
   </div>

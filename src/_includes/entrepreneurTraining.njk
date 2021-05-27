@@ -4,13 +4,13 @@ layout: layouts/base.njk
 {%- from "components/component.njk" import component -%}
 
 <div class="flex flex-col items-center">
-    <div class="flex mt-8 justify-center">
-        <p class="text-3xl text-pud_green">{{title}}</p>
+    <div class="flex mt-8 md:mt-14 justify-center">
+        <p class="text-3xl md:text-8xl text-pud_green">{{title}}</p>
     </div>
-    <div class="flex mt-4 text-center justify-center text-sm text-black">
+    <div class="flex mt-4 text-center justify-center text-sm md:text-xl md:mt-8 text-black">
         {{content | safe}}
     </div>
-    <div class="flex w-1/2 justify-center rounded-full border-2 mt-8 bg-pud_green">
+    <div class="flex w-1/2 sm:w-1/5 md:w-32 justify-center rounded-full border-2 mt-8 bg-pud_green">
         <a class="py-2 px-2 text-white" href="apply/index.html">APPLY</a>
     </div> 
 </div>
@@ -20,14 +20,28 @@ layout: layouts/base.njk
 {% set args = {'data': (testimonialPath | getVarsFromMd), 'content': (testimonialPath | getRenderedContentFromMd)} %}
 {{ component('partials/testimonial.njk', args) }}
 
-{% set applyCardPath = 'src/programs/entrepreneurTraining/howToApply.md' %}
-{% set args = {'data': (applyCardPath | getVarsFromMd), 'content': (applyCardPath | getRenderedContentFromMd)} %}
-{{ args['data'] | push('buttonLink', 'apply/index.html') }}
-{{ component('partials/pictureAboveCard.njk', args) }}
+<div class="md:flex md:flex-row-reverse md:justify-center md:w-screen">
+    <div class="md:flex-grow-0">
+        {% set applyCardPath = 'src/programs/entrepreneurTraining/howToApply.md' %}
+        {% set args = {'data': (applyCardPath | getVarsFromMd), 'content': (applyCardPath | getRenderedContentFromMd)} %}
+        {{ args['data'] | push('buttonLink', 'apply/index.html') }}
+        {{ component('partials/pictureAboveCard.njk', args) }}
+    </div>
+    <div class="md:flex-initial">
+        {% set accordionPath = 'src/programs/entrepreneurTraining/accordion.md' %}
+        {% set accordionCollection = collections.entrepreneurTrainingAccordion %}
+        {% set args = {'data': (accordionPath | getVarsFromMd), 'content': (accordionPath | getRenderedContentFromMd), 'items': accordionCollection} %}
+        {{ component('partials/accordion.njk', args) }}
+    </div>
+</div>
 
-{% set accordionPath = 'src/programs/entrepreneurTraining/accordion.md' %}
-{% set accordionCollection = collections.entrepreneurTrainingAccordion %}
-{% set args = {'data': (accordionPath | getVarsFromMd), 'content': (accordionPath | getRenderedContentFromMd), 'items': accordionCollection} %}
-{{ component('partials/accordion.njk', args) }}
+{% set outcomesPath = 'src/programs/programOutcomes.md' %}
+{% set outcomesGridCollection = collections.programOutcomesImageGrid %}
+{% set args = {'data': (outcomesPath | getVarsFromMd), 'content': (outcomesPath | getRenderedContentFromMd), 'items': outcomesGridCollection} %}
+{{ component('partials/imageGrid.njk', args) }}
 
-{% include "partials/businessDirectory.njk" %}
+{% set partnersPath = 'src/programs/partners.md' %}
+{% set partnersGridCollection = collections.partnersImageGrid %}
+{% set args = {'data': (partnersPath | getVarsFromMd), 'content': (partnersPath | getRenderedContentFromMd), 'items': partnersGridCollection} %}
+{{ component('partials/imageGrid.njk', args) }}
+

@@ -8,6 +8,6 @@ layout: layouts/base.njk
     {% set directory = {'path': '/images/logos/networkDirectory.png', 'pageLink': '/directory'} %} 
     {% set frequentlyAsked = {'path': '/images/logos/frequentlyAsked.png', 'pageLink': '/about'} %} 
     {% set detroitResources = {'path': '/images/logos/detroitResources.png', 'pageLink': '/resources'} %} 
-    {% set args = {'data': {'resourceLinks': {'Network Directory': directory, 'ProsperUS FAQ': frequentlyAsked, 'Detroit Resources': detroitResources}}} %}
+    {% set args = {'data': {'resourceLinks': {'Network Directory': directory, 'ProsperUS FAQ': frequentlyAsked, 'Detroit Resources': detroitResources} } } %}
     {{ component('partials/otherResources.njk', args) }}
 </div>
