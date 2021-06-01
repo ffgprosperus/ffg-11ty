@@ -1,10 +1,4 @@
 <section class="p-16 mx-auto flex flex-col bg-white ">
-    <div class="flex justify-center">
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div> 
-        <h1 class="mx-2 text-2xl">Programs</h1>
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-    </div>
-  <h1 class="self-center text-3xl font-medium lg:px-28 py-9 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat ut sagittis ac purus turpis. In sit tortor etiam interdum donec libero at.</h1>
   <div class="py-10 space-y-6 flex flex-col justify-items-center text-center text-black lg:flex-row lg:space-y-0 ">
     {%- for card in collections.infoCardPrograms | sortByOrder -%}
       <div class="self-center lg:self-auto transition duration-800 group mx-7 px-12 py-2 flex flex-col {{ card.data.bgColor }} rounded hover:shadow-md md:w-3/5 lg:w-2/5">
@@ -12,9 +6,11 @@
           
         <span class="self-center mb-5 group-hover:text-pud_green"><img width=180 src={{ card.data.icon | safe }}></span>
         <p class="self-center">{{card.templateContent | safe}}<p>
-        <button class="transition duration-500 opacity-0 bg-pud_green text-white font-bold py-2 px-4 mt-5 rounded group-hover:opacity-100">
-            Learn More
-        </button>
+        <a href="{{card.data.link}}">
+            <button class="transition duration-500 opacity-0 bg-pud_green text-white font-bold py-2 px-4 mt-5 rounded group-hover:opacity-100">
+                Learn More
+            </button>
+        </a>
 
       </div>
     {%- endfor -%}

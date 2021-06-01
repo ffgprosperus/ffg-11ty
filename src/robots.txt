@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ffg-staging.netlify.app/sitemap.xml
+Sitemap: https://prosperusdemo.xyz/sitemap.xml

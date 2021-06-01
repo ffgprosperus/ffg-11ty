@@ -14,9 +14,11 @@
         </div>
         <span class="self-center mb-5 group-hover:text-pud_green"><img width=180 src={{ card.data.icon | safe }}></span>
         <p class="self-center">{{card.templateContent | safe}}<p>
-        <button class="transition duration-500 opacity-0 bg-pud_green text-white font-bold py-2 px-4 mt-5 rounded group-hover:opacity-100">
-            Learn More
-        </button>
+        <a href="{{card.data.link}}">
+            <button class="transition duration-500 opacity-0 bg-pud_green text-white font-bold py-2 px-4 mt-5 rounded group-hover:opacity-100">
+                Learn More
+            </button>
+        </a>
 
       </div>
     {%- endfor -%}
