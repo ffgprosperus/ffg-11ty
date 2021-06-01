@@ -37,7 +37,7 @@ layout: layouts/base.njk
 </div>
 
 {% set outcomesPath = 'src/programs/microLending/programOutcomes.md' %}
-{% set outcomesGridCollection = collections.programOutcomesImageGrid %}
+{% set outcomesGridCollection = collections.microLendingProgramOutcomesImageGrid %}
 {% set args = {'data': (outcomesPath | getVarsFromMd), 'content': (outcomesPath | getRenderedContentFromMd), 'items': outcomesGridCollection} %}
 {{ component('partials/imageGrid.njk', args) }}
 
