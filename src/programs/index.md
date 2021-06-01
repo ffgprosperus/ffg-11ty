@@ -8,5 +8,5 @@ heroImageMainText: Our programs help you take the first steps of your business j
 heroImage: "/images/programsHeroImage.jpg"
 eleventyNavigation:
   key: Programs
-  order: 200
+  order: 100
 ---
