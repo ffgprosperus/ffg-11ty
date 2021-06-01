@@ -18,7 +18,6 @@ module.exports = function (eleventyConfig) {
 		return vals.sort((a, b) => Math.sign(a.data.order - b.data.order));
 	}
 
-	eleventyConfig.addFilter('sortByOrder', sortByOrder);
 	eleventyConfig.addNunjucksAsyncFilter('createMapsJson', function (businessCollection, callback) {
 		promises = [];
 		businessCollection.forEach((businessInfo) => {
@@ -41,6 +40,49 @@ module.exports = function (eleventyConfig) {
 			);
 		});
 	});
+
+    eleventyConfig.addFilter('generateMap', obj => { 
+        createMap.createMapWithMarkers(obj)
+    });
+    eleventyConfig.addFilter('dump', obj => {
+      return util.inspect(obj)
+    });
+    eleventyConfig.setTemplateFormats([
+        "md",
+        "css",
+        "njk"
+      ]);
+    md.use(markdownItAttrs)
+      .use(markdownItCont, '', {
+        validate: () => true,
+        render: (tokens, idx) => {
+            if (tokens[idx].nesting === 1) {
+                const classList = tokens[idx].info.trim()
+                return `<div ${classList && `class="${classList}"`}>`;
+            } else {
+                return `</div>`;
+            }
+        },
+        renderChild: (tokens, idx) => {
+            if (tokens[idx].nesting === 2) {
+                const classList = tokens[idx].info.trim()
+                return `<div ${classList && `class="${classList}"`}>`;
+            } else {
+                return `</div>`;
+            }
+        }
+      })
+    eleventyConfig.setLibrary('md', md);
+    eleventyConfig.addPassthroughCopy('css');
+    eleventyConfig.addPassthroughCopy('src/images');
+    eleventyConfig.addPassthroughCopy('src/sitemap.xml');
+    eleventyConfig.addPassthroughCopy('src/robots.txt');
+    eleventyConfig.addPlugin( require('@11ty/eleventy-navigation') );
+    eleventyConfig.addPlugin(eleventyGoogleFonts);
+    eleventyConfig.addShortcode('navlist', require('./lib/shortcodes/navlist.js'));
+    eleventyConfig.addNunjucksShortcode("flex", require('./lib/shortcodes/flex.js'));
+    console.log('build dir: ' + (process.env.FFG_BUILD_DIR || 'build'));
+	eleventyConfig.addFilter('sortByOrder', sortByOrder);
 	eleventyConfig.addFilter('getVarsFromMd', (mdFile) => {
 		let contents = fs.readFileSync(mdFile, function (err, data) {
 			if (err) {
