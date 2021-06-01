@@ -1,5 +1,13 @@
 <!doctype html>
-<html lang="en" class="w-full">
+<html lang="en" class="">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-43MNK8C6YJ"</script>>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-43MNK8C6YJ');
 </script>
   <head>
     <script async src="https://cse.google.com/cse.js?cx=8c8acbd3c081f241e"></script>
@@ -11,22 +19,27 @@
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
      {% eleventyGoogleFonts 'https://fonts.googleapis.com/css2?family=Lato&display=swap' %}
      <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   </head>
-  <body class="w-full text-base">
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6VVH5H"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <article>
+  <body class="text-base w-full">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6VVH5H"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <article class="flex flex-col">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
+      {% elif (title == "Programs") %}
+        {% include "components/standardHeaderWithHero.njk" %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
-      <main class="min-h-screen pt-20">
+      <main>
         {{ content | safe }}
       </main>
       <script src="/assets/main.js"></script>
-      {%include "components/standardFooter.njk"%}
+      {%include "components/footer2.njk"%}
     </article>
+    
   </body>
   
 </html>

@@ -1,0 +1,24 @@
+<div class="p-8 mx-auto flex flex-col bg-white justify-items-center">
+    <div class="flex justify-center">
+        <div class="w-8 h-0.5 bg-red-600 mt-4"></div> 
+        <h1 class="mx-2 text-2xl">Other Resources</h1>
+        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
+    </div>
+  <div class="flex flex-col self-center align-center text-center text-black md:flex-row md: justify-center py-4">
+    {% if resourceLinks == null %}
+        {% set directory = {'path': '/images/logos/networkDirectory.png', 'pageLink': '/directory'} %}
+        {% set frequentlyAsked = {'path': '/images/logos/frequentlyAsked.png', 'pageLink': '/about'} %}
+        {% set detroitResources = {'path': '/images/logos/detroitResources.png', 'pageLink': '/resources'} %}
+        {% set resourceLinks = {'Network Directory': directory, 'ProsperUS FAQ': frequentlyAsked, 'Detroit Resources': detroitResources} %}
+    {% endif %}
+
+    {%- for name, content in resourceLinks -%}
+      <div class="mx-12 px-18 py-4 flex flex-col self-center rounded hover:shadow-md lg:w-1/5">
+        <a href="{{content['pageLink']}}"><img src="{{content['path']}}"/></a>
+        <h4 class="self-center text-2xl mb-2 group-hover:text-pud_green"><b>{{name}}</b></h4>
+      </div>
+    {%- endfor -%}
+
+    {% set resourceLinks = null %}
+  </div>
+</div>

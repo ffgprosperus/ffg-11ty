@@ -1,32 +1,38 @@
-<div class="h-20 z-40">
-  <div class="sticky w-full flex flex-col mb-4 row-auto">
-    <div class="bg-red-600 h-6"></div>
-    <nav class="flex flex-row bg-white items-center justify-between flex-wrap px-5 py-3 border-b">
-      <a href="/"><img width="160" src="../images/logo.png" /></a>
-
+<div class="h-20 z-50 lg:h-24">
+  <div class="fixed w-full lg:w-full flex flex-col">
+    <header x-data="{ mobileMenuOpen : false }" class="flex flex-wrap flex-row items-center bg-white justify-end lg:justify-between border-b-2 py-2 md:px-3">
+      <a href="/" class="order-1 mr-auto lg:mr-0">
+        <span class="sr-only">themes.dev</span>
+        <img class="h-16 lg:h-20" src="../images/logo.png" alt="Themes.dev Logo" title="Themes.dev Logo">
+      </a>
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="order-2 inline-block lg:hidden rounded-lg w-9 h-9 bg-gray-200 text-pud_green p-1">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
       {% set navPages = collections.all | eleventyNavigation %}
-      <ul>
+      <nav class="fixed w-full lg:relative top-20 left-0 text-center border-t-2 lg:border-none lg:top-0 lg:flex flex-col lg:flex-row lg:space-x-10 lg:order-3 font-semibold lg:w-auto bg-white shadow-md rounded-b-lg lg:rounded-none lg:shadow-none lg:bg-transparent p-6 pt-0 lg:p-0"
+      :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false"
+      >
         {% for entry in navPages %}
-          <li class="inline">
-            <a
-            href="{{ entry.url }}"
-            class="uppercase py-1 mt-6 px-2 font-lato mr-4 inline-block
-            {{'border-b-2 border-pud_green font-medium' if entry.url in page.url
-            else 'text-gray-700 hover:text-gray-900'}}">
-            {{ entry.title }}
-          </a>
-          </li>
+        <a href="{{ entry.url }}" class="py-3 border-b-2 border-b-0 lg:py-2 self-center uppercase font-lato inline-block
+          {{'border-b-2 border-pud_green font-bold' if entry.url in page.url
+            else 'text-gray-700 hover:text-gray-900 lg:border-none hover:underline'}}">
+          {{ entry.title }}
+        </a>
         {% endfor %}
-      </ul>
-      <div class="flex w-64 mt-6">
-        <div class="relative flex items-center space-between flex-row text-gray-600 border-2 border-pud_green rounded-full focus-within:text-gray-400 w-11 h-11 focus-within:w-full focus-within:h-18 transition-width transition duration-900 search-in-out overflow-hidden search-bar">
-          <input type="text" class="absolute top-0 bottom-0 left-0 flex-grow-1 2xl w-4/5 search-bar__input cursor-pointer focus:outline-none focus:cursor-text bg-opacity-25 h-auto opacity-0 focus:opacity-100 focus:pl-4" placeholder="Search..." area-label="">
-          <button class="search-bar__submit align-middle rounded-full h-9 w-9 p-1  cursor-pointer ml-auto transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          </button>
+        <div class="flex flex-row self-center justify-between rounded-full border-2 border-gray-300  mt-3 lg:mt-0 text-pud_green">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 self-center ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+          </svg>
+          <a class="py-2 px-2 mr-1 self-center text-gray-700 " href="apply/index.html">CONTRIBUTE</a>
         </div>
-      </div>
-
-    </nav>
+      </nav>
+        <div class="mx-2 mr-3 order-3 self-center flex lg:order-4">
+          <div class="self-center bg-pud_green rounded-lg px-2 py-1.5 text-gray-200">
+            <button id='search_bar' class="align-middle rounded-full cursor-pointer transition-colors duration-150ms ease-in-out focus:outline-none hover:shadow-xl" aria-label="submit search">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5 lg:w-6 lg:h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+    </header>
   </div>
 </div>

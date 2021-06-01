@@ -9,6 +9,7 @@ const util = require('util')
 const mapUtils = require('./mapUtils.js')
 const querystring = require('querystring');
 const fs = require('fs')
+const path = require('path');
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addNunjucksAsyncFilter('createMapsJson', function(businessCollection, callback) {
@@ -20,7 +21,7 @@ module.exports = function(eleventyConfig) {
         Promise.all(promises).then((result) => {
             filteredResult = result.filter(el => { return el != null })
             console.log(filteredResult)
-             fs.writeFile('build/businessInfo.json', JSON.stringify(filteredResult), (err) => {
+             fs.writeFile(path.join((process.env.FFG_BUILD_DIR || 'build'), 'businessInfo.json'), JSON.stringify(filteredResult), (err) => {
                 console.log('done writing')
                 if(err) throw err;
                 callback(null, null)
@@ -67,11 +68,13 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(eleventyGoogleFonts);
     eleventyConfig.addShortcode('navlist', require('./lib/shortcodes/navlist.js'));
     eleventyConfig.addNunjucksShortcode("flex", require('./lib/shortcodes/flex.js'));
+    console.log('build dir: ' + (process.env.FFG_BUILD_DIR || 'build'));
+
     return {
       passthroughFileCopy: true,
       dir: {
         input: 'src',
-        output: 'build'
+        output: process.env.FFG_BUILD_DIR || 'build'
       }
 
     }

@@ -2,16 +2,25 @@
 title: Home
 layout: layouts/base.njk
 ---
-<div class="h-full bg-white flex flex-col">
-    <section class="font-bold mb-20 px-12">
-        <h1 class="text-5xl text-red-600"> ProsperUS Detroit</h1>
-        <h1 class="text-4xl self-center"> is a place-based economic development initiative that builds and sustains neighborhood entrepreneurs and small businesses.</h1>
+<div class="h-full bg-white flex flex-col pt-10">
+    <div class="flex justify-center">
+        <div class="w-8 h-0.5 bg-red-600 mt-4"></div> 
+        <h1 class="mx-2 text-2xl">Our Mission</h1>
+        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
+    </div>
+    <section class="py-20 px-10 flex flex-col items-center justify-center  md:flex-row">
+
+       <img class="z-10 flex shadow-2xl rounded-md md:w-2/3 md:ml-auto lg:mr-16 lg:w-1/2" src="images/home_pic1.png">
+        <div class="md:w-2/3 shadow-lg rounded-md border-2 border-gray-100 px-10 py-10 md:h-2/5 md:absolute md:left-20 md:w-1/2 md:mt-56 md:mr-80 lg:mr-96 lg:w-1/2 lg:ml-0 lg:top-full z-10 bg-white">
+            <h1 class="text-2xl leading-relaxed tracking-wide mb-5">Growing Detroit one neighborhood at a time</h1>
+            <h1 class="text-lg self-center"> ProsperUS Detroit is a place-based economic development initiative that builds and sustains neighborhood entrepreneurs and small businesses.</h1>
+        </div>
+
     </section>
-    <section class="h-screen-3/5 w-screen">
-        <div class="w-full h-full flex-start bg-top bg-cover w-screen bg-fixed bg-no-repeat" style="background-image:url(images/home_pic1.png)"></div>
-    <section>
+    
     <div class="gcse-search"></div>
     {% include "partials/infoCards.njk" %}
+    {% include "partials/stats2.njk" %}
     {% include "partials/businessDirectory.njk" %} 
 </div>
 

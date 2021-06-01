@@ -8,6 +8,15 @@
                 <loc>https://ffg-staging.netlify.app/about</loc>
         </url>
         <url>
+                <loc>https://ffg-staging.netlify.app/programs</loc>
+        </url>
+        <url>
                 <loc>https://ffg-staging.netlify.app/resources</loc>
+        </url>
+        <url>
+                <loc>https://ffg-staging.netlify.app/impact</loc>
+        </url>
+        <url>
+                <loc>https://ffg-staging.netlify.app/impact</loc>
         </url>
 </urlset>
