@@ -1,0 +1,48 @@
+---
+layout: layouts/base.njk
+---
+{%- from "components/component.njk" import component -%}
+
+<div class="flex flex-col items-center">
+    <div class="flex mt-8 md:mt-14 text-center justify-center">
+        <p class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-pud_green">{{title}}</p>
+    </div>
+</div>
+
+<div class="flex flex-col-reverse md:flex-row bg-gray-300 my-10 rounded-md mx-4 md:mx-8 lg:mx-16">
+    <div class="flex flex-col md:items-end md:w-1/2 px-8">
+        <div class="text-black text-2xl md:text-right md:text-3xl pt-4 pb-2">
+            {% set leftContentPath = 'src/programs/microLending/apply/leftContent.md' %}
+            {% set left = {'data': (leftContentPath | getVarsFromMd), 'content': (leftContentPath | getRenderedContentFromMd)} %}
+            {{ left.data.heading }}
+        </div>
+        <div class="text-black text-sm md:text-right md:text-lg lg:text-xl pt-2">
+            {{ left.content | safe }}
+        </div>
+        <div class="flex w-1/2 sm:w-auto justify-center rounded-full text-center border-2 mb-4 mt-4 bg-pud_green">
+            <a class="py-2 px-2 text-white text-center" href="{{ left.data.programInfoLink }}">{{left.data.buttonText}}</a>
+        </div>
+    </div>
+    <div class="hidden md:flex md:my-5 items-center justify-center">
+        <div class="w-2 h-full bg-white rounded"></div>
+    </div>
+    <div class="flex md:hidden items-center justify-center pt-6">
+        <div class="h-8 w-full bg-white "></div>
+    </div>
+    <div class="flex flex-col w-full items-start px-8 md:w-1/2">
+        <div class="text-black text-2xl md:text-left md:text-3xl pt-4 pb-2">
+            {% set rightContentPath = 'src/programs/microLending/apply/rightContent.md' %}
+            {% set right = {'data': (rightContentPath | getVarsFromMd), 'content': (rightContentPath | getRenderedContentFromMd)} %}
+            {{ right.data.heading }}
+        </div>
+        <div class="text-black text-sm md:text-xl pt-2 text-left">
+            {{ right.content | safe }}
+        </div>
+    </div>
+</div>
+
+{% set args = {'data': {'link': formAssemblyLink } } %}
+<div class="flex overflow-visible">
+    {{ component('partials/applicationForm.njk', args) }}
+</div>
+
