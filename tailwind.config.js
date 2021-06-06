@@ -46,6 +46,7 @@ module.exports = {
 			padding: ['focus'],
 			transitionTimingFunction: ['hover', 'focus'],
 			transform: ['hover', 'focus'],
+			display: ['group-hover'],
 		},
 	},
 };

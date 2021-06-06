@@ -5,14 +5,16 @@ layout: layouts/base.njk
 
 <div class="flex flex-col items-center">
     <div class="flex mt-8 md:mt-14 justify-center">
-        <p class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-pud_green">{{title}}</p>
+        <p class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-pud_green font-bold">{{title}}</p>
     </div>
     <div class="flex mt-4 text-center justify-center text-sm md:text-xl md:mt-8 text-black">
         {{content | safe}}
     </div>
-    <div class="flex w-1/4 sm:w-1/5 md:w-32 justify-center rounded-full border-2 mt-8 bg-pud_green">
-        <a class="py-2 px-2 text-white" href="apply/index.html">APPLY</a>
-    </div> 
+	<div class="flex">
+		<div class="flex w-1/4 sm:w-1/5 md:w-32 justify-center rounded-full border-2 mt-8 bg-pud_green">
+			<a class="py-2 px-2 text-white" href="{{ applyPageLink }}">{{ applyButtonText }}</a>
+		</div> 
+	</div>
 </div>
 
 <div class="mx-4 md:mx-8 lg:mx-16">

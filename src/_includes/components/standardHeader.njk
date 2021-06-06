@@ -13,11 +13,29 @@
       :class="{ 'flex' : mobileMenuOpen , 'hidden' : !mobileMenuOpen}"  @click.away="mobileMenuOpen = false"
       >
         {% for entry in navPages %}
-        <a href="{{ entry.url }}" class="py-3 border-b-2 border-b-0 lg:py-2 self-center uppercase font-lato inline-block
-          {{'border-b-2 border-pud_green font-bold' if entry.url in page.url
-            else 'text-gray-700 hover:text-gray-900 lg:border-none hover:underline'}}">
-          {{ entry.title }}
-        </a>
+		<div class="flex flex-col group">
+			<a href="{{ entry.url }}" class="py-3 border-b-2 border-b-0 lg:py-2 self-center uppercase font-lato inline-block
+			  {{'border-b-2 border-pud_green font-bold' if entry.url in page.url
+				else 'text-gray-700 hover:text-gray-900 lg:border-none hover:underline'}}">
+			  {{ entry.title }}
+			</a>
+		  	
+		  	{% if entry.children.length > 0 %}
+				<div class="flex flex-col ml-40 lg:ml-0 lg:hidden lg:group-hover:block lg:absolute mt-4 lg:mt-10 pt-1 p-1 bg-white border-gray-200 border-2 self-center w-auto items-start">
+			{% endif %}
+			{% for child in entry.children %}
+				<div class="">
+					<a href="{{ child.url }}" class="py-3 border-b-2 border-b-0 lg:py-2 self-center uppercase font-lato inline-block
+					  {{'border-b-2 border-pud_green font-bold' if child.url in page.url
+						else 'text-gray-700 hover:text-gray-900 lg:border-none hover:underline'}}">
+						{{ child.title }}
+					</a>
+				</div>
+			{% endfor %}
+		  	{% if entry.children.length > 0 %}
+				</div>
+			{% endif %}
+		</div>
         {% endfor %}
         <div class="flex flex-row self-center justify-between rounded-full border-2 border-gray-300  mt-3 lg:mt-0 text-pud_green">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 self-center ml-2" viewBox="0 0 20 20" fill="currentColor">
@@ -34,6 +52,6 @@
           </div>
         </div>
     </header>
-    <div class="w-full h-2 bg-red-700"></div>
+    <div class="w-full h-1 bg-red-700"></div>
   </div>
 </div>
