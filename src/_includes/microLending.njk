@@ -16,9 +16,9 @@ layout: layouts/base.njk
 </div>
 
 <div class="mx-4 md:mx-8 lg:mx-16">
-    {% set testimonialPath = 'src/programs/microLending/testimonial.md' %}
-    {% set args = {'data': (testimonialPath | getVarsFromMd), 'content': (testimonialPath | getRenderedContentFromMd)} %}
-    {{ component('partials/testimonial.njk', args) }}
+    {% set quotePath = 'src/programs/microLending/popoutQuote.md' %}
+    {% set args = {'data': (quotePath | getVarsFromMd), 'content': (quotePath | getRenderedContentFromMd)} %}
+    {{ component('partials/popoutQuoteWithPicture.njk', args) }}
 </div>
 
 <div class="md:flex md:flex-row-reverse md:justify-center md:mx-8 lg:mx-16">
