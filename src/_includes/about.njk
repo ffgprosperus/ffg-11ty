@@ -47,19 +47,56 @@ layout: layouts/base.njk
         
 </div>
 
-<div class=" pr-40 mx-12 px-18 py-4 flex flex-col self-center rounded hover:shadow-md">
-     <h4 class="pt-10 text-left text-2xl mb-2 text-pud_green font-extrabold text-5xl">PROSPERUS DETROIT STAFF.</h4>
-    <div class="pt-10 grid grid-flow-col grid-cols-2 grid-rows-2 gap-4 pb-20">
-        <div class="flex">
-            <img class="px-20 pb-20 rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+<div class="mx-12 py-4 flex flex-col rounded hover:shadow-md">
+    <h4 class="pt-10 text-left mb-2 text-pud_green font-extrabold text-5xl">PROSPERUS DETROIT STAFF.</h4>
+    <div class="flex flex-wrap mt-10 justify-center">
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
         </div>
-        <div class="text-pud_green  text-2xl auto-rows-min">
-    <strong>DEIRDRE ROBERSON</strong><br>
-            <div class="text-pud_dark_gray"> ProsperUS Detroit Graduate</div>
- </div>
+
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
     </div>
 </div>
 
+{%- from "components/component.njk" import component -%}
 <div class="flex flex-col">
-      {% include "partials/otherResources.njk" %}
+    {% set directory = {'path': '/images/logos/networkDirectory.png', 'pageLink': '/directory'} %} 
+    {% set frequentlyAsked = {'path': '/images/logos/frequentlyAsked.png', 'pageLink': '/about'} %} 
+    {% set detroitResources = {'path': '/images/logos/detroitResources.png', 'pageLink': '/resources'} %} 
+    {% set args = {'data': {'resourceLinks': {'Network Directory': directory, 'ProsperUS FAQ': frequentlyAsked, 'Detroit Resources': detroitResources} } } %}
+    {{ component('partials/otherResources.njk', args) }}
 </div>
