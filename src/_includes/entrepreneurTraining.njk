@@ -26,12 +26,15 @@ layout: layouts/base.njk
         {% set applyCardPath = 'src/programs/entrepreneurTraining/howToApply.md' %}
         {% set args = {'data': (applyCardPath | getVarsFromMd), 'content': (applyCardPath | getRenderedContentFromMd)} %}
         {{ args['data'] | push('buttonLink', 'apply/index.html') }}
+        {{ args['data'] | push('backgroundColor', 'bg-pud_light_green') }}
         {{ component('partials/pictureAboveCard.njk', args) }}
     </div>
     <div class="md:flex md:flex-col md:flex-grow-0 md:mr-2 md:w-1/2">
         {% set accordionPath = 'src/programs/entrepreneurTraining/accordion.md' %}
         {% set accordionCollection = collections.entrepreneurTrainingAccordion %}
         {% set args = {'data': (accordionPath | getVarsFromMd), 'content': (accordionPath | getRenderedContentFromMd), 'items': accordionCollection} %}
+        {{ args['data'] | push('backgroundColor', 'bg-red-200') }}
+        {{ args['data'] | push('secondaryColor', 'bg-red-50') }}
         {{ component('partials/accordion.njk', args) }}
     </div>
 </div>

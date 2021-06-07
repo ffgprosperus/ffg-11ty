@@ -10,11 +10,9 @@ layout: layouts/base.njk
     <div class="flex mt-4 text-center justify-center text-sm md:text-xl md:mt-8 text-black">
         {{content | safe}}
     </div>
-	<div class="flex">
-		<div class="flex w-1/4 sm:w-1/5 md:w-32 justify-center rounded-full border-2 mt-8 bg-pud_green">
-			<a class="py-2 px-2 text-white" href="{{ applyPageLink }}">{{ applyButtonText }}</a>
-		</div> 
-	</div>
+    <div class="flex w-1/4 sm:w-1/5 md:w-32 justify-center rounded-full border-2 mt-8 bg-pud_green">
+        <a class="py-2 px-2 text-white" href="{{ applyPageLink }}">{{ applyButtonText }}</a>
+    </div> 
 </div>
 
 <div class="mx-4 md:mx-8 lg:mx-16">
@@ -28,12 +26,15 @@ layout: layouts/base.njk
         {% set applyCardPath = 'src/programs/businessServices/howToApply.md' %}
         {% set args = {'data': (applyCardPath | getVarsFromMd), 'content': (applyCardPath | getRenderedContentFromMd)} %}
         {{ args['data'] | push('buttonLink', 'apply/index.html') }}
+        {{ args['data'] | push('backgroundColor', 'bg-pud_light_green') }}
         {{ component('partials/pictureAboveCard.njk', args) }}
     </div>
     <div class="md:flex md:flex-col md:flex-grow-0 md:mr-2 md:w-1/2">
         {% set accordionPath = 'src/programs/businessServices/accordion.md' %}
         {% set accordionCollection = collections.businessServicesAccordion %}
         {% set args = {'data': (accordionPath | getVarsFromMd), 'content': (accordionPath | getRenderedContentFromMd), 'items': accordionCollection} %}
+        {{ args['data'] | push('backgroundColor', 'bg-red-200') }}
+        {{ args['data'] | push('secondaryColor', 'bg-red-50') }}
         {{ component('partials/accordion.njk', args) }}
     </div>
 </div>

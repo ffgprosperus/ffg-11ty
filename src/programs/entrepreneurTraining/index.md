@@ -1,5 +1,5 @@
 ---
-title: Entrepreneur Training Program
+title: Entrepreneur Training
 applyPageLink: apply
 applyButtonText: APPLY
 layout: entrepreneurTraining.njk
