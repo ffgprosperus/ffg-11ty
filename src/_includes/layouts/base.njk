@@ -30,6 +30,8 @@
         {% include "components/heroHead.njk" %}
       {% elif (title == "Programs") %}
         {% include "components/standardHeaderWithHero.njk" %}
+      {% elif (title == "Contact") %}
+        {% include "components/standardHeaderWithHeroNoCaptions.njk" %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
@@ -39,7 +41,7 @@
       <script src="/assets/main.js"></script>
       {%include "components/footer2.njk"%}
     </article>
-    
+
   </body>
-  
+
 </html>
