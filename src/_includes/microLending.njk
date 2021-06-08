@@ -32,6 +32,8 @@ layout: layouts/base.njk
         {% set accordionPath = 'src/programs/microLending/accordion.md' %}
         {% set accordionCollection = collections.microLendingAccordion %}
         {% set args = {'data': (accordionPath | getVarsFromMd), 'content': (accordionPath | getRenderedContentFromMd), 'items': accordionCollection} %}
+        {{ args['data'] | push('backgroundColor', 'bg-red-200') }}
+        {{ args['data'] | push('secondaryColor', 'bg-red-50') }}
         {{ component('partials/accordion.njk', args) }}
     </div>
 </div>
