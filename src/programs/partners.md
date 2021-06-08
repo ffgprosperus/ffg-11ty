@@ -1,3 +1,3 @@
 ---
-title: Community Parners
+title: Community Partners
 ---
