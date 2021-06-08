@@ -12,7 +12,7 @@ layout: layouts/base.njk
     </div>
 
     {% set quotePath = 'src/popoutQuote.md' %}
-    {% set args = {'data': (quotePath | getVarsFromMd), 'content': (qutoePath | getRenderedContentFromMd)} %}
+    {% set args = {'data': (quotePath | getVarsFromMd), 'content': (quotePath | getRenderedContentFromMd)} %}
     {{ component('partials/popoutQuoteWithPicture.njk', args) }}    
     
     <div class="gcse-search"></div>
