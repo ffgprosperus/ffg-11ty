@@ -15,7 +15,9 @@ module.exports = {
 				pud_green: '#477A7C',
 				pud_light_green: '#b5cacb',
 				pud_gray: '#E7E7E7',
+				pud_dark_gray: '#C4C4C4',
 				pud_green_sec: '#DEF2F1',
+				pud_red: '#C53B33',
 			},
 			fontFamily: {
 				lato: ['Lato'],

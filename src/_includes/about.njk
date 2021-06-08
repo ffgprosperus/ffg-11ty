@@ -1,7 +1,102 @@
 ---
-title: About
 layout: layouts/base.njk
 ---
-<div class="h-full">
-    {{content | safe}}
+<div class="pb-50 mx-12 px-18 py-4 flex flex-col self-center rounded hover:shadow-md bg-pud_dark_gray">
+        <h4 class="pt-10 pr-10 text-right text-2xl mb-2 text-pud_green font-extrabold text-5xl">PURPOSE</h4>
+        <div class="pt-10 grid grid-cols-2 grid-rows-1 gap-4 pb-20">
+            <div class="px-10">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iJrSPFRmBkc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="px-10 pt-5 font-bold text-2xl">
+                ProsperUS Detroit is a place-based economic development strategy designed to empower low and moderate income, immigrant and minority individuals. <br>
+                Through our culturally competent range of services, we strive to support the entrepreneurial spirit and small business community that exists in Detroit’s neighborhoods.
+            </div>
+        </div>
+</div>
+
+<div class="bg-opacity-40 mx-12 my-20 py-10 px-18  flex flex-col self-center rounded hover:shadow-md bg-pud_green">
+        <h4 class="pl-20 text-left text-2xl mb-2 text-pud_green font-extrabold text-5xl">MISSION</h4>
+        <p class="px-20 pt-10 self-center font-bold text-2xl"> Our mission is to provide opportunities for individuals and families to achieve greater economic success. 
+            The team at ProsperUS Detroit believes that residents, small businesses, and neighborhood groups in all communities have the talent, energy, and ability to engage and revitalize their own communities. 
+            It is our mission to empower entrepreneurs and our Community Partners to transform low-income neighborhood economies from within.
+        <p>
+</div>
+
+<img class="px-20 pb-20 rounded hover:shadow-md" src="/images/nikki-neuzil.jpg">
+
+<div class="bg-opacity-40 pr-40 mx-12 px-18 py-4 flex flex-col self-center rounded hover:shadow-md bg-pud_red">
+        <h4 class=" pt-10 text-right text-2xl mb-2 text-pud_green font-extrabold text-5xl">
+            VALUES
+        </h4>
+        <p class="px-20 self-center text-2xl pb-20">
+            <strong>PARTNERSHIP</strong><br>
+            Partnerships with community-based organizations allow us to earn the trust of local residents.<br>
+            <br>
+            <strong>POWER OF CULTURE</strong><br>
+            Highly accessible, culturally competent services eliminate barriers to success.<br>
+            <br>
+            <strong>COMMUNITY OWNERSHIP</strong><br>
+            Working at scale creates social capital and physical assets that communities own.<br>
+            <br>
+            <strong>FLEXIBILITY</strong><br>
+            A comprehensive, flexible, long-term approach helps entrepreneurs succeed in a constantly changing environment.<br>
+            <br>
+            <strong>INNOVATION</strong><br>
+            Improvement and innovation fueled by regular evaluation, lead to our sustained effectiveness.<br>
+        <p>
+        
+</div>
+
+<div class="mx-12 py-4 flex flex-col rounded hover:shadow-md">
+    <h4 class="pt-10 text-left mb-2 text-pud_green font-extrabold text-5xl">PROSPERUS DETROIT STAFF.</h4>
+    <div class="flex flex-wrap mt-10 justify-center">
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 mb-8 ">
+            <div class="w-2/3 self-center">
+                <img class="rounded hover:shadow-md" src="/images/deirdre-roberson.jpg">
+            </div>
+            <div class="text-pud_green  text-xl text-center">
+                <p class="font-bold">DEIRDRE ROBERSON</p>
+                <p class="text-pud_dark_gray self-center"> ProsperUS Detroit Graduate</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- from "components/component.njk" import component -%}
+<div class="flex flex-col">
+    {% set directory = {'path': '/images/logos/networkDirectory.png', 'pageLink': '/directory'} %} 
+    {% set frequentlyAsked = {'path': '/images/logos/frequentlyAsked.png', 'pageLink': '/about'} %} 
+    {% set detroitResources = {'path': '/images/logos/detroitResources.png', 'pageLink': '/resources'} %} 
+    {% set args = {'data': {'resourceLinks': {'Network Directory': directory, 'ProsperUS FAQ': frequentlyAsked, 'Detroit Resources': detroitResources} } } %}
+    {{ component('partials/otherResources.njk', args) }}
 </div>

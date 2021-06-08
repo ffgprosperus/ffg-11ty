@@ -28,10 +28,10 @@
     <article class="flex flex-col">
       {% if (title == "Home") %}
         {% include "components/heroHead.njk" %}
-      {% elif (title == "Programs") %}
-        {% include "components/standardHeaderWithHero.njk" %}
-      {% elif (title == "Contact") %}
-        {% include "components/standardHeaderWithHeroNoCaptions.njk" %}
+      {% elif heroImage %}
+        {% set title = title | lower %}
+        {% set pageName = "partials/pageHeaderWithHero.njk" | replace("page", title )%}
+        {% include pageName %}
       {% else %}
         {% include "components/standardHeader.njk" %}
       {% endif %}
