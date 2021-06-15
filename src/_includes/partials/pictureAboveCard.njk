@@ -7,8 +7,9 @@
         <div class="px-8 pb-4">
             {{params.content | safe}}
         </div>
-        <div class="flex w-1/4 self-center justify-center rounded-full mt-2 mb-4 bg-pud_green">
-            <a class="py-2 px-2 text-white" href="{{params.data.buttonLink}}">APPLY</a>
-        </div> 
+        <div class="mt-2 mb-4 self-center">
+            {% set args = {'data': {'buttonText': 'Apply', 'buttonLink': params.data.buttonLink} } %}
+            {{ component('partials/button.njk', args) }}
+        </div>
     </div>
 </div>

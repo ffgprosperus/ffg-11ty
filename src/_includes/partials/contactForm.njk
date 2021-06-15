@@ -1,3 +1,5 @@
+{%- from "components/component.njk" import component -%}
+
 <section class="p-0 mx-auto flex flex-col bg-white items-center">
     <div class="flex justify-center">
         <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
@@ -45,7 +47,10 @@
         rows=4
         class="ring-1 ring-gray-300 w-full rounded-md px-16 py-2 mt-2 mb-2 outline-none focus:ring-2"></textarea>
       </div>
-        <button class="flex-none m-4 text-white rounded-lg px-8 py-2 uppercase text-sm" style="background-color:#477A7C;">Send Message</button>
+        <div class="m-4">
+            {% set args = {'data': {'buttonText': 'Send Message', 'buttonLink': ''} } %}
+            {{ component('partials/button.njk', args) }}
+        </div>
     </form>
   </div>
 

@@ -19,8 +19,9 @@ layout: layouts/base.njk
         <div class="text-pud_green text-sm md:text-right md:text-lg lg:text-xl pt-2">
             {{ left.content | safe }}
         </div>
-        <div class="flex w-1/2 sm:w-auto justify-center rounded-full text-center mb-4 mt-4 bg-pud_green">
-			<a class="py-2 px-2 text-white text-center" href="{{ left.data.programInfoLink }}">{{ left.data.buttonText }}</a>
+        <div class="mt-7 mb-5">
+            {% set args = {'data': {'buttonText': left.data.buttonText, 'buttonLink': left.data.programInfoLink} } %}
+            {{ component('partials/button.njk', args) }}
         </div>
     </div>
     <div class="hidden md:flex md:my-5 items-center justify-center">

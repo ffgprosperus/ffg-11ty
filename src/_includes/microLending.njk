@@ -10,9 +10,10 @@ layout: layouts/base.njk
     <div class="flex mt-4 text-center justify-center text-sm md:text-xl md:mt-8 text-black">
         {{content | safe}}
     </div>
-    <div class="flex w-1/4 sm:w-1/5 md:w-32 justify-center rounded-full border-2 mt-8 bg-pud_green">
-		<a class="py-2 px-2 text-white" href="{{ applyPageLink }}">{{ applyButtonText }}</a>
-    </div> 
+    <div class="mt-8">
+        {% set args = {'data': {'buttonText': applyButtonText, 'buttonLink': applyPageLink } } %}
+        {{ component('partials/button.njk', args) }}
+    </div>
 </div>
 
 <div class="mx-4 md:mx-8 lg:mx-16">
