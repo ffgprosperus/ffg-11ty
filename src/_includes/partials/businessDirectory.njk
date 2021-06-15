@@ -1,9 +1,7 @@
 <div class="flex flex-col items-center justify-between py-20  bg-gray-100">
-  <div class="flex justify-center">
-    <div class="w-8 h-0.5 bg-red-600 mt-4"></div> 
-    <h1 class="mx-2 text-2xl">Explore Our Network</h1>
-    <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-  </div>
+  {% set args = {'data': {'headerText': 'Explore Our Network'} } %}
+  {{ component('partials/sectionHeader.njk', args) }}
+
 
   <div class="inline-block w-4/5 self-center mt-5">
     <div id="map" style="height: 600px; width: 100%;"></div>

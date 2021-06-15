@@ -1,9 +1,7 @@
 <section class="p-16 mx-auto flex flex-col bg-white ">
-    <div class="flex justify-center">
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div> 
-        <h1 class="mx-2 text-2xl">Programs</h1>
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-    </div>
+  {% set args = {'data': {'headerText': 'Programs'} } %}
+  {{ component('partials/sectionHeader.njk', args) }}
+
   <h1 class="self-center text-3xl font-medium lg:px-28 py-9 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat ut sagittis ac purus turpis. In sit tortor etiam interdum donec libero at.</h1>
   <div class="py-10 space-y-6 flex flex-col justify-items-center text-center text-black lg:flex-row lg:space-y-0 ">
     {%- for card in collections.infoCardHome | sortByOrder -%}

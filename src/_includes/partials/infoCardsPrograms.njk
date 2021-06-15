@@ -1,4 +1,6 @@
 <section class="p-16 mx-auto flex flex-col bg-white ">
+  {% set args = {'data': {'headerText': 'Our Programs'} } %}
+  {{ component('partials/sectionHeader.njk', args) }}
   <div class="py-10 space-y-6 flex flex-col justify-items-center text-center text-black lg:flex-row lg:space-y-0 ">
     {%- for card in collections.infoCardPrograms | sortByOrder -%}
       <div class="self-center lg:self-auto transition duration-800 group mx-7 px-12 py-2 flex flex-col {{ card.data.bgColor }} rounded hover:shadow-md md:w-3/5 lg:w-2/5">

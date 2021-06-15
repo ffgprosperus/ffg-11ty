@@ -5,11 +5,8 @@ layout: layouts/base.njk
 {%- from "components/component.njk" import component -%}
 
 <div class="h-full bg-white flex flex-col pt-10">
-    <div class="flex justify-center">
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-        <h1 class="mx-2 text-2xl">Our Mission</h1>
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-    </div>
+    {% set args = {'data': {'headerText': 'Our Mission'} } %}
+    {{ component('partials/sectionHeader.njk', args) }}
 
     {% set quotePath = 'src/popoutQuote.md' %}
     {% set args = {'data': (quotePath | getVarsFromMd), 'content': (quotePath | getRenderedContentFromMd)} %}
