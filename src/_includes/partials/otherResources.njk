@@ -5,7 +5,7 @@
     {%- for name, content in params.data.resourceLinks -%}
       <div class="mx-12 px-18 py-4 flex flex-col self-center rounded hover:shadow-md lg:w-1/5">
         <a href="{{content['pageLink']}}"><img src="{{content['path']}}"/></a>
-        <h4 class="self-center text-2xl mb-2 group-hover:text-pud_green"><b>{{name}}</b></h4>
+        <h4 class="self-center text-2xl mb-2 group-hover:text-pud_green">{{name}}</h4>
       </div>
     {%- endfor -%}
   </div>

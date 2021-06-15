@@ -1,5 +1,5 @@
 ---
 tags: businessServicesAccordion
-title: PROGRAM COST
+title: Program Cost
 ---
 A $75 fee covers all expenses.

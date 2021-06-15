@@ -9,7 +9,7 @@
         {% else %}
             <img style="width:270px;" src="{{item.data.path}}"/>
         {% endif %}
-        <h4 class="self-center text-xl lg:text-2xl mb-2 mt-4 group-hover:text-pud_green"><b>{{item.templateContent | safe}}</b></h4>
+        <h4 class="self-center text-xl lg:text-2xl mb-2 mt-4">{{item.templateContent | safe}}</h4>
       </div>
     {%- endfor -%}
   </div>
