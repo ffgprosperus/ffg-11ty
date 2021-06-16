@@ -1,3 +1,5 @@
+{%- from "components/component.njk" import component -%}
+
 <section class="p-16 mx-auto flex flex-col bg-white ">
   {% set args = {'data': {'headerText': 'Our Programs'} } %}
   {{ component('partials/sectionHeader.njk', args) }}
@@ -7,7 +9,7 @@
          <h4 class="self-center text-2xl mb-2 py-6">{{card.data.title}}</h4>
           
         <span class="self-center mb-5 group-hover:text-pud_green"><img width=180 src={{ card.data.icon | safe }}></span>
-        <p class="self-center">{{card.templateContent | safe}}<p>
+        <p class="self-center text-base">{{card.templateContent | safe}}<p>
         <div class="transition duration-500 opacity-0 group-hover:opacity-100 mt-5">
             {% set args = {'data': {'buttonText': 'Learn More', 'buttonLink': card.data.link } } %}
             {{ component('partials/button.njk', args) }}

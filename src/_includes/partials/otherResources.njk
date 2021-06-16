@@ -1,3 +1,5 @@
+{%- from "components/component.njk" import component -%}
+
 <div class="p-8 mx-auto flex flex-col bg-white justify-items-center">
   {% set args = {'data': {'headerText': 'Other Resources'} } %}
   {{ component('partials/sectionHeader.njk', args) }}
