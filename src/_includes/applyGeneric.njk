@@ -12,12 +12,12 @@ layout: layouts/base.njk
 
 <div class="flex flex-col-reverse md:flex-row bg-gradient-to-r from-red-100 bg-red-500 my-10 rounded-md mx-4 md:mx-8 lg:mx-16">
     <div class="flex flex-col md:items-end md:w-1/2 px-8">
-        <div class="text-black text-2xl md:text-right md:text-3xl pt-4 pb-2">
+        <div class="text-black text-lg md:text-right pt-4 pb-2">
             {% set leftContentPath = 'src/' + pageMarkdownPath + 'leftContent.md' %}
             {% set left = {'data': (leftContentPath | getVarsFromMd), 'content': (leftContentPath | getRenderedContentFromMd)} %}
             {{ left.data.heading }}
         </div>
-        <div class="text-black text-sm md:text-right md:text-lg lg:text-xl pt-3">
+        <div class="text-black text-base md:text-right pt-3">
             {{ left.content | safe }}
         </div>
         <div class="mt-7 mb-5">
@@ -32,12 +32,12 @@ layout: layouts/base.njk
         <div class="h-8 w-full bg-white "></div>
     </div>
     <div class="flex flex-col w-full items-start px-8 md:w-1/2">
-        <div class="text-black text-2xl md:text-left md:text-3xl pt-4 pb-2">
+        <div class="text-black text-lg md:text-left pt-4 pb-2">
             {% set rightContentPath = 'src/' + pageMarkdownPath + 'rightContent.md' %}
             {% set right = {'data': (rightContentPath | getVarsFromMd), 'content': (rightContentPath | getRenderedContentFromMd)} %}
             {{ right.data.heading }}
         </div>
-        <div class="text-black text-sm md:text-xl pt-3 text-left">
+        <div class="text-black text-base pt-3 text-left">
             {{ right.content | safe }}
         </div>
     </div>

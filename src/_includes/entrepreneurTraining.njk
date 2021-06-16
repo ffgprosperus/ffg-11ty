@@ -8,7 +8,7 @@ layout: layouts/base.njk
         {% set args = {'data': {'headerText': title} } %}
         {{ component('partials/sectionHeader.njk', args) }}
     </div>
-    <div class="flex mt-4 text-center justify-center text-sm md:text-xl md:mt-8 text-black">
+    <div class="flex mt-4 text-center justify-center text-base md:mt-8 text-black">
         {{content | safe}}
     </div>
     <div class="mt-8">
