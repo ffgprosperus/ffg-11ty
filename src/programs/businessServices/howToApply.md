@@ -1,5 +1,5 @@
 ---
-title: TO APPLY
+title: To Apply
 imagePath: "/images/logo.png"
 ---
 Submit an application online.<br>

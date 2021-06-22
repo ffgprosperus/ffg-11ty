@@ -1,3 +1,5 @@
+{%- from "components/component.njk" import component -%}
+
 <div class="flex flex-col items-center justify-between py-20 bg-gradient-to-b from-white via-pud_gradient_lg1 to-gray-100">
   {% set args = {'data': {'headerText': 'Explore Our Network'} } %}
   {{ component('partials/sectionHeader.njk', args) }}

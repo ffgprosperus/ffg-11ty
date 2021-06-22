@@ -1,14 +1,18 @@
 <div class="flex flex-col items-left mt-10 bg-gray-300 {{params.data.backgroundColor}} rounded-md mx-4 md:mx-0">
-    <p class="text-pud_green text-2xl md:text-3xl font-bold px-8 pt-8 pb-4">{{params.data.title}}</p>
+    <p class="text-black text-2xl md:text-3xl px-8 pt-8 pb-4">{{params.data.title}}</p>
     <ul class="shadow-box pb-6">
         {% for accordionItem in params.items %}
             <li x-data="{selected:null}">
-                <button type="button" class="text-pud_green font-bold pt-6 px-8 text-left w-full" @click="selected !== 1 ? selected = 1 : selected = null">
-                    <p class="text-lg md:text-xl">{{accordionItem.data.title}}</p>
+                <button type="button" class="text-black pt-6 px-8 text-left w-full outline-none" @click="selected !== 1 ? selected = 1 : selected = null">
+                    <div class="flex flex-row">
+                        <p class="text-lg pr-4">{{accordionItem.data.title}}</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </div>
                 </button>
-
-                <div class="bg-gray-100 {{params.data.secondaryColor}} w-full mx-0 px-8 relative overflow-hidden transition-all max-h-0 duration-700" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
-                    <div class="py-4 md:text-lg">{{accordionItem.templateContent | safe}}</div>
+                <div class="bg-gray-100 {{params.data.secondaryColor}}  w-full px-8 relative overflow-hidden transition-all max-h-0.5 duration-700" x-ref="container1" x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                    <div class="py-4">{{accordionItem.templateContent | safe}}</div>
                 </div>
             </li>
         {% endfor %}

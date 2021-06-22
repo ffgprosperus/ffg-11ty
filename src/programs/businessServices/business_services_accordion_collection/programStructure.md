@@ -1,6 +1,6 @@
 ---
 tags: businessServicesAccordion
-title: PROGRAM STRUCTURE
+title: Program Structure
 ---
 16 weeks from start to finish.
 

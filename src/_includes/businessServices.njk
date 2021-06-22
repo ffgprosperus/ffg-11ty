@@ -5,9 +5,11 @@ layout: layouts/base.njk
 
 <div class="flex flex-col items-center">
     <div class="flex mt-8 md:mt-14 justify-center">
-        <p class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-pud_green font-bold">{{title}}</p>
+        {% set args = {'data': {'headerText': title} } %}
+        {{ component('partials/sectionHeader.njk', args) }}
     </div>
-    <div class="flex mt-4 text-center justify-center text-sm md:text-xl md:mt-8 text-black">
+
+    <div class="flex mt-4 text-center justify-center md:mt-8 text-black">
         {{content | safe}}
     </div>
     <div class="mt-8">
@@ -22,7 +24,7 @@ layout: layouts/base.njk
     {{ component('partials/popoutQuoteWithPicture.njk', args) }}
 </div>
 
-<div class="md:flex md:flex-row-reverse md:justify-center md:mx-8 lg:mx-16">
+<div class="md:flex md:flex-row-reverse md:justify-center md:mx-8 lg:mx-16 mb-4">
     <div class="md:ml-2 md:w-1/2">
         {% set applyCardPath = 'src/programs/businessServices/howToApply.md' %}
         {% set args = {'data': (applyCardPath | getVarsFromMd), 'content': (applyCardPath | getRenderedContentFromMd)} %}

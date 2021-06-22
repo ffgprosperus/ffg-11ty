@@ -1,3 +1,5 @@
+{%- from "components/component.njk" import component -%}
+
 <section class="p-16 mx-auto flex flex-col bg-white ">
   {% set args = {'data': {'headerText': 'Programs'} } %}
   {{ component('partials/sectionHeader.njk', args) }}

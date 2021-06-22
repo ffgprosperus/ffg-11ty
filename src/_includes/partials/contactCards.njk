@@ -1,9 +1,8 @@
+{%- from "components/component.njk" import component -%}
+
 <section class="p-16 mx-auto flex flex-col bg-white justify-items-center">
-    <div class="flex justify-center">
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-        <h1 class="mx-2 text-2xl">How to Reach ProsperUS</h1>
-        <div class="w-8 h-0.5 bg-red-600 mt-4"></div>
-    </div>
+  {% set args = {'data': {'headerText': 'How to Reach ProsperUS'} } %}
+  {{ component('partials/sectionHeader.njk', args) }}
   <h1 class="self-center text-3xl font-medium lg:px-28 py-9 text-center">Reach out to us, we'd love to hear from you!</h1>
   <div class="flex flex-col self-center  align-center text-center text-gray-600 lg:flex-row py-10">
     {%- for card in collections.contactCard -%}
