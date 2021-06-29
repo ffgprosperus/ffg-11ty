@@ -34,3 +34,5 @@ fields:
   - type: number
     name: order
     label: order
+pages:
+- src/programs/index.md
