@@ -1,0 +1,35 @@
+---
+label: MainProgramsPage
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: description
+  label: description
+- type: text
+  name: layout
+  label: layout
+- type: text
+  name: heroTitle
+  label: heroTitle
+- type: text
+  name: heroImageSubTitle
+  label: heroImageSubTitle
+- type: textarea
+  name: heroImageMainText
+  label: heroImageMainText
+- type: file
+  name: heroImage
+  label: heroImage
+- type: field_group
+  name: eleventyNavigation
+  label: eleventyNavigation
+  fields:
+  - type: text
+    name: key
+    label: key
+  - type: number
+    name: order
+    label: order
