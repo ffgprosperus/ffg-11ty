@@ -9,6 +9,9 @@ sections:
   label: Programs
   create: all
   match: "**/*"
+- type: document
+  path: src/programs/index.md
+  label: Programs
 - type: heading
   label: Forestry
 - type: document
@@ -40,9 +43,6 @@ sections:
 - type: document
   path: src/impact/index.md
   label: Impact
-- type: document
-  path: src/programs/index.md
-  label: Programs
 - type: document
   path: src/resources/index.md
   label: Resources
